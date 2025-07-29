@@ -25,3 +25,5 @@ react_app/.env.production.local
 react_app/npm-debug.log*
 react_app/yarn-debug.log*
 react_app/yarn-error.log*
+
+my_app/tmp

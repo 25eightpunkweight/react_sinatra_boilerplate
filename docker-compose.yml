@@ -1,27 +1,39 @@
 version: '3.8'
 services:
   db:
-    image: postgres
-    env_file: ./.env
-  sinatra-api:
-    build: ./sinatra_api
-    command: bash -c "rm -f tmp/pids/server.pid && bundle exec puma"
+    image: postgres:11
     volumes:
-      - .:/sinatra-api
-    ports:
-      - "9292:9292"
+      - ./tmp/db:/var/lib/postgresql/data
+    environment:
+      POSTGRES_HOST_AUTH_METHOD: trust  
+  # sinatra-api:
+  #   build: ./sinatra_api
+  #   command: bash -c "rm -f tmp/pids/server.pid && bundle exec puma"
+  #   volumes:
+  #     - .:/sinatra-api
+  #   ports:
+  #     - "9292:9292"
+  #   depends_on:
+  #     - db
+  #   env_file: ./sinatra_api/.env
+  my_app:
+    platform: linux/amd64
+    build: ./my_app
+    command: bundle exec rails s -p 3000 -b '0.0.0.0'
+    volumes:
+      - ./my_app:/my_app
     depends_on:
       - db
-    env_file: ./sinatra_api/.env
+    env_file: ./my_app/.env
   react-app:
     build: ./react_app
     command: bash -c "npm start"
     volumes:
-      - .:/react-app
+      - ./react_app:/react_app
     ports:
       - "1337:1337"
     depends_on:
-      - sinatra-api
+      - my_app
     env_file: ./react_app/.env
 volumes:
   postgres:
