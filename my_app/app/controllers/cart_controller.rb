@@ -11,14 +11,21 @@ class CartController < ApplicationController
     end
     
     def add_item
-        item = Item.find(params[:item_id])
-        @cart.add_item(item)
-        redirect_to cart_path, notice: "#{item.name} has been added to your cart."
+        @cart = Cart.find(params[:cart_id])
+        @cart.add_to_cart(params[:product_id])
+        render json: {
+            cart_id: @cart.id,
+            cart_items: @cart.current_cart
+            cart_total: @cart.total_price
+        }, status: :updated
     end
     
     def remove_item
-        item = Item.find(params[:item_id])
-        @cart.remove_item(item)
-        redirect_to cart_path, notice: "#{item.name} has been removed from your cart."
-    end
+        @cart = Cart.find(params[:cart_id])
+        @cart.remove_from_cart(params[:product_id])
+        render json: {
+            cart_id: @cart.id,
+            cart_items: @cart.current_cart
+            cart_total: @cart.total_price
+        }, status: :updated    end
 end

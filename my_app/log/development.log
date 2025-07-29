@@ -420,3 +420,1313 @@ Migrating to AddQuantityToCartItems (20250729082211)
   [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT /*application='MyApp'*/[0m
   [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_advisory_unlock(4346549080646495835) /*application='MyApp'*/[0m
   [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN /*application='MyApp'*/[0m
+  [1m[36mCart Create (0.4ms)[0m  [1m[32mINSERT INTO "carts" ("created_at", "updated_at") VALUES ('2025-07-29 09:44:38.967918', '2025-07-29 09:44:38.967918') RETURNING "id" /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.2ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 2 AND "cart_items"."product_id" = NULL LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.4ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 2 /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.3ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 2 AND "cart_items"."product_id" = 1 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 1 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='MyApp'*/[0m
+  [1m[36mCart Create (0.4ms)[0m  [1m[32mINSERT INTO "carts" ("created_at", "updated_at") VALUES ('2025-07-29 09:48:46.160557', '2025-07-29 09:48:46.160557') RETURNING "id" /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.2ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 3 AND "cart_items"."product_id" = NULL LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.4ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 3 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN /*application='MyApp'*/[0m
+  [1m[36mCart Create (0.5ms)[0m  [1m[32mINSERT INTO "carts" ("created_at", "updated_at") VALUES ('2025-07-29 09:53:29.797026', '2025-07-29 09:53:29.797026') RETURNING "id" /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.2ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 4 AND "cart_items"."product_id" = 1 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN /*application='MyApp'*/[0m
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 1 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mCartItem Create (0.3ms)[0m  [1m[32mINSERT INTO "cart_items" ("cart_id", "product_id", "created_at", "updated_at", "quantity") VALUES (4, 1, '2025-07-29 09:53:29.802744', '2025-07-29 09:53:29.802744', 3) RETURNING "id" /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.3ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 4 /* loading for pp */ LIMIT 11 /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.4ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 4 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN /*application='MyApp'*/[0m
+  [1m[36mCartItem Destroy (0.2ms)[0m  [1m[31mDELETE FROM "cart_items" WHERE "cart_items"."id" = 2 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.3ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 4 AND "cart_items"."product_id" = 1 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='MyApp'*/[0m
+  [1m[36mProduct Load (0.5ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 1 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mCartItem Create (0.2ms)[0m  [1m[32mINSERT INTO "cart_items" ("cart_id", "product_id", "created_at", "updated_at", "quantity") VALUES (4, 1, '2025-07-29 09:55:49.497798', '2025-07-29 09:55:49.497798', 2) RETURNING "id" /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN /*application='MyApp'*/[0m
+  [1m[36mCart Create (0.5ms)[0m  [1m[32mINSERT INTO "carts" ("created_at", "updated_at") VALUES ('2025-07-29 09:59:52.187270', '2025-07-29 09:59:52.187270') RETURNING "id" /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.2ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 5 AND "cart_items"."product_id" = 1 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 1 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='MyApp'*/[0m
+  [1m[36mCartItem Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "cart_items" WHERE "cart_items"."product_id" = 1 AND "cart_items"."cart_id" = 5 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mCartItem Create (0.3ms)[0m  [1m[32mINSERT INTO "cart_items" ("cart_id", "product_id", "created_at", "updated_at", "quantity") VALUES (5, 1, '2025-07-29 09:59:52.203081', '2025-07-29 09:59:52.203081', 4) RETURNING "id" /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mCOMMIT /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.3ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 5 /* loading for pp */ LIMIT 11 /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.7ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 5 ORDER BY "cart_items"."id" ASC LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 1 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.5ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 5 AND "cart_items"."product_id" = 2 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 2 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN /*application='MyApp'*/[0m
+  [1m[36mCartItem Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "cart_items" WHERE "cart_items"."product_id" = 2 AND "cart_items"."cart_id" = 5 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mCartItem Create (0.2ms)[0m  [1m[32mINSERT INTO "cart_items" ("cart_id", "product_id", "created_at", "updated_at", "quantity") VALUES (5, 2, '2025-07-29 10:00:31.129752', '2025-07-29 10:00:31.129752', 6) RETURNING "id" /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.3ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 5 ORDER BY "cart_items"."id" ASC LIMIT 1 OFFSET 1 /*application='MyApp'*/[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 2 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='MyApp'*/[0m
+  [1m[36mCart Create (0.5ms)[0m  [1m[32mINSERT INTO "carts" ("created_at", "updated_at") VALUES ('2025-07-29 10:08:33.112437', '2025-07-29 10:08:33.112437') RETURNING "id" /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.2ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 6 AND "cart_items"."product_id" = 1 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 1 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='MyApp'*/[0m
+  [1m[36mCartItem Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "cart_items" WHERE "cart_items"."product_id" = 1 AND "cart_items"."cart_id" = 6 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mCartItem Create (0.3ms)[0m  [1m[32mINSERT INTO "cart_items" ("cart_id", "product_id", "created_at", "updated_at", "quantity") VALUES (6, 1, '2025-07-29 10:08:33.125175', '2025-07-29 10:08:33.125175', 6) RETURNING "id" /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.1ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 6 AND "cart_items"."product_id" = 2 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 2 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN /*application='MyApp'*/[0m
+  [1m[36mCartItem Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "cart_items" WHERE "cart_items"."product_id" = 2 AND "cart_items"."cart_id" = 6 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mCartItem Create (0.1ms)[0m  [1m[32mINSERT INTO "cart_items" ("cart_id", "product_id", "created_at", "updated_at", "quantity") VALUES (6, 2, '2025-07-29 10:08:33.127828', '2025-07-29 10:08:33.127828', 6) RETURNING "id" /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mCOMMIT /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.1ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 6 AND "cart_items"."product_id" = 3 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 3 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN /*application='MyApp'*/[0m
+  [1m[36mCartItem Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "cart_items" WHERE "cart_items"."product_id" = 3 AND "cart_items"."cart_id" = 6 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mCartItem Create (0.1ms)[0m  [1m[32mINSERT INTO "cart_items" ("cart_id", "product_id", "created_at", "updated_at", "quantity") VALUES (6, 3, '2025-07-29 10:08:33.130144', '2025-07-29 10:08:33.130144', 6) RETURNING "id" /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.3ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 6 /* loading for pp */ LIMIT 11 /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.5ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 6 /* loading for pp */ LIMIT 11 /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.4ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 6 ORDER BY "cart_items"."id" ASC LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.3ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 6 ORDER BY "cart_items"."id" ASC LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 1 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.3ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 6 ORDER BY "cart_items"."id" ASC LIMIT 1 OFFSET 1 /*application='MyApp'*/[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 2 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.3ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 6 ORDER BY "cart_items"."id" ASC LIMIT 1 OFFSET 2 /*application='MyApp'*/[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 3 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN /*application='MyApp'*/[0m
+  [1m[36mCart Create (0.5ms)[0m  [1m[32mINSERT INTO "carts" ("created_at", "updated_at") VALUES ('2025-07-29 10:10:23.790778', '2025-07-29 10:10:23.790778') RETURNING "id" /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.2ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 7 AND "cart_items"."product_id" = 1 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 1 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN /*application='MyApp'*/[0m
+  [1m[36mCartItem Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "cart_items" WHERE "cart_items"."product_id" = 1 AND "cart_items"."cart_id" = 7 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mCartItem Create (0.3ms)[0m  [1m[32mINSERT INTO "cart_items" ("cart_id", "product_id", "created_at", "updated_at", "quantity") VALUES (7, 1, '2025-07-29 10:10:23.804682', '2025-07-29 10:10:23.804682', 5) RETURNING "id" /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.1ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 7 AND "cart_items"."product_id" = 2 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 2 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN /*application='MyApp'*/[0m
+  [1m[36mCartItem Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "cart_items" WHERE "cart_items"."product_id" = 2 AND "cart_items"."cart_id" = 7 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mCartItem Create (0.1ms)[0m  [1m[32mINSERT INTO "cart_items" ("cart_id", "product_id", "created_at", "updated_at", "quantity") VALUES (7, 2, '2025-07-29 10:10:23.806572', '2025-07-29 10:10:23.806572', 5) RETURNING "id" /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.1ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 7 AND "cart_items"."product_id" = 3 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 3 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN /*application='MyApp'*/[0m
+  [1m[36mCartItem Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "cart_items" WHERE "cart_items"."product_id" = 3 AND "cart_items"."cart_id" = 7 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mCartItem Create (0.1ms)[0m  [1m[32mINSERT INTO "cart_items" ("cart_id", "product_id", "created_at", "updated_at", "quantity") VALUES (7, 3, '2025-07-29 10:10:23.808109', '2025-07-29 10:10:23.808109', 5) RETURNING "id" /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.3ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 7 /* loading for pp */ LIMIT 11 /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.4ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 7 ORDER BY "cart_items"."id" ASC LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 1 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.4ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 7 ORDER BY "cart_items"."id" ASC LIMIT 1 OFFSET 1 /*application='MyApp'*/[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 2 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.3ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 7 ORDER BY "cart_items"."id" ASC LIMIT 1 OFFSET 2 /*application='MyApp'*/[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 3 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN /*application='MyApp'*/[0m
+  [1m[36mCart Create (0.5ms)[0m  [1m[32mINSERT INTO "carts" ("created_at", "updated_at") VALUES ('2025-07-29 10:18:01.082319', '2025-07-29 10:18:01.082319') RETURNING "id" /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.2ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 8 /* loading for pp */ LIMIT 11 /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.3ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 8 /* loading for pp */ LIMIT 11 /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.3ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 8 AND "cart_items"."product_id" = 1 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 1 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='MyApp'*/[0m
+  [1m[36mCartItem Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "cart_items" WHERE "cart_items"."product_id" = 1 AND "cart_items"."cart_id" = 8 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mCartItem Create (0.4ms)[0m  [1m[32mINSERT INTO "cart_items" ("cart_id", "product_id", "created_at", "updated_at", "quantity") VALUES (8, 1, '2025-07-29 10:18:52.583008', '2025-07-29 10:18:52.583008', 3) RETURNING "id" /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.3ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 8 /* loading for pp */ LIMIT 11 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN /*application='MyApp'*/[0m
+  [1m[36mCart Create (0.4ms)[0m  [1m[32mINSERT INTO "carts" ("created_at", "updated_at") VALUES ('2025-07-29 10:19:12.088290', '2025-07-29 10:19:12.088290') RETURNING "id" /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.2ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 9 AND "cart_items"."product_id" = 1 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 1 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN /*application='MyApp'*/[0m
+  [1m[36mCartItem Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "cart_items" WHERE "cart_items"."product_id" = 1 AND "cart_items"."cart_id" = 9 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mCartItem Create (0.2ms)[0m  [1m[32mINSERT INTO "cart_items" ("cart_id", "product_id", "created_at", "updated_at", "quantity") VALUES (9, 1, '2025-07-29 10:19:12.100264', '2025-07-29 10:19:12.100264', 3) RETURNING "id" /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.3ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 9 /* loading for pp */ LIMIT 11 /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.3ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 9 /* loading for pp */ LIMIT 11 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN /*application='MyApp'*/[0m
+  [1m[36mCart Create (0.5ms)[0m  [1m[32mINSERT INTO "carts" ("created_at", "updated_at") VALUES ('2025-07-29 10:22:43.653398', '2025-07-29 10:22:43.653398') RETURNING "id" /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.2ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 10 AND "cart_items"."product_id" = 1 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 1 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN /*application='MyApp'*/[0m
+  [1m[36mCartItem Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "cart_items" WHERE "cart_items"."product_id" = 1 AND "cart_items"."cart_id" = 10 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mCartItem Create (0.3ms)[0m  [1m[32mINSERT INTO "cart_items" ("cart_id", "product_id", "created_at", "updated_at", "quantity") VALUES (10, 1, '2025-07-29 10:22:48.731527', '2025-07-29 10:22:48.731527', 2) RETURNING "id" /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.3ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 10 /* loading for pp */ LIMIT 11 /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.4ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 10 AND "cart_items"."product_id" = 1 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 1 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN /*application='MyApp'*/[0m
+  [1m[36mCartItem Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "cart_items" WHERE "cart_items"."product_id" = 1 AND "cart_items"."id" != 14 AND "cart_items"."cart_id" = 10 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mCartItem Update (0.1ms)[0m  [1m[33mUPDATE "cart_items" SET "updated_at" = '2025-07-29 10:22:54.991252', "quantity" = 4 WHERE "cart_items"."id" = 14 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.3ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 10 /* loading for pp */ LIMIT 11 /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.4ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 10 AND "cart_items"."product_id" = 1 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 1 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN /*application='MyApp'*/[0m
+  [1m[36mCartItem Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "cart_items" WHERE "cart_items"."product_id" = 1 AND "cart_items"."id" != 14 AND "cart_items"."cart_id" = 10 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mCartItem Update (0.1ms)[0m  [1m[33mUPDATE "cart_items" SET "updated_at" = '2025-07-29 10:22:59.086518', "quantity" = 6 WHERE "cart_items"."id" = 14 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.3ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 10 /* loading for pp */ LIMIT 11 /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.4ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 10 ORDER BY "cart_items"."id" ASC LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 1 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.3ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 10 AND "cart_items"."product_id" = 2 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 2 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN /*application='MyApp'*/[0m
+  [1m[36mCartItem Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "cart_items" WHERE "cart_items"."product_id" = 2 AND "cart_items"."cart_id" = 10 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mCartItem Create (0.2ms)[0m  [1m[32mINSERT INTO "cart_items" ("cart_id", "product_id", "created_at", "updated_at", "quantity") VALUES (10, 2, '2025-07-29 10:23:34.311553', '2025-07-29 10:23:34.311553', 2) RETURNING "id" /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.4ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 10 AND "cart_items"."product_id" = 2 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 2 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='MyApp'*/[0m
+  [1m[36mCartItem Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "cart_items" WHERE "cart_items"."product_id" = 2 AND "cart_items"."id" != 15 AND "cart_items"."cart_id" = 10 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mCartItem Update (0.1ms)[0m  [1m[33mUPDATE "cart_items" SET "updated_at" = '2025-07-29 10:23:35.842725', "quantity" = 3 WHERE "cart_items"."id" = 15 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.3ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 10 AND "cart_items"."product_id" = 2 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 2 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='MyApp'*/[0m
+  [1m[36mCartItem Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "cart_items" WHERE "cart_items"."product_id" = 2 AND "cart_items"."id" != 15 AND "cart_items"."cart_id" = 10 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mCartItem Update (0.2ms)[0m  [1m[33mUPDATE "cart_items" SET "updated_at" = '2025-07-29 10:23:36.746952', "quantity" = 4 WHERE "cart_items"."id" = 15 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.3ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 10 /* loading for pp */ LIMIT 11 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN /*application='MyApp'*/[0m
+  [1m[36mCart Create (0.4ms)[0m  [1m[32mINSERT INTO "carts" ("created_at", "updated_at") VALUES ('2025-07-29 10:25:49.440845', '2025-07-29 10:25:49.440845') RETURNING "id" /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.2ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 11 AND "cart_items"."product_id" = 1 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 1 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN /*application='MyApp'*/[0m
+  [1m[36mCartItem Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "cart_items" WHERE "cart_items"."product_id" = 1 AND "cart_items"."cart_id" = 11 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mCartItem Create (0.3ms)[0m  [1m[32mINSERT INTO "cart_items" ("cart_id", "product_id", "created_at", "updated_at", "quantity") VALUES (11, 1, '2025-07-29 10:25:49.454848', '2025-07-29 10:25:49.454848', 2) RETURNING "id" /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.3ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 11 /* loading for pp */ LIMIT 11 /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.4ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 11 AND "cart_items"."product_id" = 1 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 1 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='MyApp'*/[0m
+  [1m[36mCartItem Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "cart_items" WHERE "cart_items"."product_id" = 1 AND "cart_items"."id" != 16 AND "cart_items"."cart_id" = 11 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mCartItem Update (0.1ms)[0m  [1m[33mUPDATE "cart_items" SET "updated_at" = '2025-07-29 10:25:57.582788', "quantity" = 4 WHERE "cart_items"."id" = 16 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.4ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 11 /* loading for pp */ LIMIT 11 /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.4ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 11 /* loading for inspect */ LIMIT 11 /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.1ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 11 /* loading for inspect */ LIMIT 11 /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.4ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 11 ORDER BY "cart_items"."id" ASC LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 1 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.4ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 11 AND "cart_items"."product_id" = 2 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 2 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN /*application='MyApp'*/[0m
+  [1m[36mCartItem Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "cart_items" WHERE "cart_items"."product_id" = 2 AND "cart_items"."cart_id" = 11 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mCartItem Create (0.2ms)[0m  [1m[32mINSERT INTO "cart_items" ("cart_id", "product_id", "created_at", "updated_at", "quantity") VALUES (11, 2, '2025-07-29 10:26:17.711687', '2025-07-29 10:26:17.711687', 1) RETURNING "id" /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.4ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 11 /* loading for pp */ LIMIT 11 /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.5ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 11 AND "cart_items"."product_id" = 2 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 2 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN /*application='MyApp'*/[0m
+  [1m[36mCartItem Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "cart_items" WHERE "cart_items"."product_id" = 2 AND "cart_items"."id" != 17 AND "cart_items"."cart_id" = 11 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mCartItem Update (0.1ms)[0m  [1m[33mUPDATE "cart_items" SET "updated_at" = '2025-07-29 10:26:28.754358', "quantity" = 2 WHERE "cart_items"."id" = 17 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.4ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 11 /* loading for pp */ LIMIT 11 /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.3ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 11 AND "cart_items"."product_id" = 2 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 2 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN /*application='MyApp'*/[0m
+  [1m[36mCartItem Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "cart_items" WHERE "cart_items"."product_id" = 2 AND "cart_items"."id" != 17 AND "cart_items"."cart_id" = 11 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mCartItem Update (0.2ms)[0m  [1m[33mUPDATE "cart_items" SET "updated_at" = '2025-07-29 10:26:33.126446', "quantity" = 3 WHERE "cart_items"."id" = 17 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.3ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 11 /* loading for pp */ LIMIT 11 /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.3ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 11 ORDER BY "cart_items"."id" ASC LIMIT 1 OFFSET 1 /*application='MyApp'*/[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 2 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.3ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 11 AND "cart_items"."product_id" = 2 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 2 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN /*application='MyApp'*/[0m
+  [1m[36mCartItem Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "cart_items" WHERE "cart_items"."product_id" = 2 AND "cart_items"."id" != 17 AND "cart_items"."cart_id" = 11 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mCartItem Update (0.1ms)[0m  [1m[33mUPDATE "cart_items" SET "updated_at" = '2025-07-29 10:26:59.606732', "quantity" = 4 WHERE "cart_items"."id" = 17 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.3ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 11 AND "cart_items"."product_id" = 2 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 2 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN /*application='MyApp'*/[0m
+  [1m[36mCartItem Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "cart_items" WHERE "cart_items"."product_id" = 2 AND "cart_items"."id" != 17 AND "cart_items"."cart_id" = 11 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mCartItem Update (0.1ms)[0m  [1m[33mUPDATE "cart_items" SET "updated_at" = '2025-07-29 10:27:00.498553', "quantity" = 5 WHERE "cart_items"."id" = 17 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.4ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 11 ORDER BY "cart_items"."id" ASC LIMIT 1 OFFSET 1 /*application='MyApp'*/[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 2 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.3ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 11 ORDER BY "cart_items"."id" ASC LIMIT 1 OFFSET 1 /*application='MyApp'*/[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 2 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.5ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 11 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN /*application='MyApp'*/[0m
+  [1m[36mCart Create (0.4ms)[0m  [1m[32mINSERT INTO "carts" ("created_at", "updated_at") VALUES ('2025-07-29 10:28:10.897589', '2025-07-29 10:28:10.897589') RETURNING "id" /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.2ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 12 AND "cart_items"."product_id" = 1 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 1 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='MyApp'*/[0m
+  [1m[36mCartItem Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "cart_items" WHERE "cart_items"."product_id" = 1 AND "cart_items"."cart_id" = 12 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mCartItem Create (0.2ms)[0m  [1m[32mINSERT INTO "cart_items" ("cart_id", "product_id", "created_at", "updated_at", "quantity") VALUES (12, 1, '2025-07-29 10:28:15.664967', '2025-07-29 10:28:15.664967', 2) RETURNING "id" /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.4ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 12 AND "cart_items"."product_id" = 1 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 1 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN /*application='MyApp'*/[0m
+  [1m[36mCartItem Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "cart_items" WHERE "cart_items"."product_id" = 1 AND "cart_items"."id" != 18 AND "cart_items"."cart_id" = 12 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mCartItem Update (0.1ms)[0m  [1m[33mUPDATE "cart_items" SET "updated_at" = '2025-07-29 10:28:16.913587', "quantity" = 4 WHERE "cart_items"."id" = 18 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.4ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 12 AND "cart_items"."product_id" = 1 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 1 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN /*application='MyApp'*/[0m
+  [1m[36mCartItem Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "cart_items" WHERE "cart_items"."product_id" = 1 AND "cart_items"."id" != 18 AND "cart_items"."cart_id" = 12 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mCartItem Update (0.2ms)[0m  [1m[33mUPDATE "cart_items" SET "updated_at" = '2025-07-29 10:28:17.508475', "quantity" = 6 WHERE "cart_items"."id" = 18 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.3ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 12 /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.3ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 12 AND "cart_items"."product_id" = 2 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 2 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='MyApp'*/[0m
+  [1m[36mCartItem Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "cart_items" WHERE "cart_items"."product_id" = 2 AND "cart_items"."cart_id" = 12 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mCartItem Create (0.2ms)[0m  [1m[32mINSERT INTO "cart_items" ("cart_id", "product_id", "created_at", "updated_at", "quantity") VALUES (12, 2, '2025-07-29 10:28:30.037170', '2025-07-29 10:28:30.037170', 1) RETURNING "id" /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.3ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 12 AND "cart_items"."product_id" = 3 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 3 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='MyApp'*/[0m
+  [1m[36mCartItem Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "cart_items" WHERE "cart_items"."product_id" = 3 AND "cart_items"."cart_id" = 12 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mCartItem Create (0.2ms)[0m  [1m[32mINSERT INTO "cart_items" ("cart_id", "product_id", "created_at", "updated_at", "quantity") VALUES (12, 3, '2025-07-29 10:28:31.433069', '2025-07-29 10:28:31.433069', 1) RETURNING "id" /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN /*application='MyApp'*/[0m
+  [1m[36mCart Create (0.4ms)[0m  [1m[32mINSERT INTO "carts" ("created_at", "updated_at") VALUES ('2025-07-29 10:29:42.316782', '2025-07-29 10:29:42.316782') RETURNING "id" /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.2ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 13 AND "cart_items"."product_id" = 1 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 1 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='MyApp'*/[0m
+  [1m[36mCartItem Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "cart_items" WHERE "cart_items"."product_id" = 1 AND "cart_items"."cart_id" = 13 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mCartItem Create (0.3ms)[0m  [1m[32mINSERT INTO "cart_items" ("cart_id", "product_id", "created_at", "updated_at", "quantity") VALUES (13, 1, '2025-07-29 10:29:48.776065', '2025-07-29 10:29:48.776065', 2) RETURNING "id" /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.3ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 13 AND "cart_items"."product_id" = 1 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 1 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN /*application='MyApp'*/[0m
+  [1m[36mCartItem Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "cart_items" WHERE "cart_items"."product_id" = 1 AND "cart_items"."id" != 21 AND "cart_items"."cart_id" = 13 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mCartItem Update (0.1ms)[0m  [1m[33mUPDATE "cart_items" SET "updated_at" = '2025-07-29 10:29:49.788034', "quantity" = 4 WHERE "cart_items"."id" = 21 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.3ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 13 AND "cart_items"."product_id" = 1 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 1 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='MyApp'*/[0m
+  [1m[36mCartItem Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "cart_items" WHERE "cart_items"."product_id" = 1 AND "cart_items"."id" != 21 AND "cart_items"."cart_id" = 13 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mCartItem Update (0.1ms)[0m  [1m[33mUPDATE "cart_items" SET "updated_at" = '2025-07-29 10:29:50.397001', "quantity" = 6 WHERE "cart_items"."id" = 21 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.3ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 13 /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.3ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 13 AND "cart_items"."product_id" = 2 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 2 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='MyApp'*/[0m
+  [1m[36mCartItem Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "cart_items" WHERE "cart_items"."product_id" = 2 AND "cart_items"."cart_id" = 13 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mCartItem Create (0.2ms)[0m  [1m[32mINSERT INTO "cart_items" ("cart_id", "product_id", "created_at", "updated_at", "quantity") VALUES (13, 2, '2025-07-29 10:30:06.118208', '2025-07-29 10:30:06.118208', 1) RETURNING "id" /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.3ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 13 AND "cart_items"."product_id" = 3 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 3 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN /*application='MyApp'*/[0m
+  [1m[36mCartItem Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "cart_items" WHERE "cart_items"."product_id" = 3 AND "cart_items"."cart_id" = 13 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mCartItem Create (0.2ms)[0m  [1m[32mINSERT INTO "cart_items" ("cart_id", "product_id", "created_at", "updated_at", "quantity") VALUES (13, 3, '2025-07-29 10:30:07.553553', '2025-07-29 10:30:07.553553', 1) RETURNING "id" /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN /*application='MyApp'*/[0m
+  [1m[36mCart Create (0.5ms)[0m  [1m[32mINSERT INTO "carts" ("created_at", "updated_at") VALUES ('2025-07-29 10:31:09.594456', '2025-07-29 10:31:09.594456') RETURNING "id" /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.3ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 14 AND "cart_items"."product_id" = 2 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 2 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN /*application='MyApp'*/[0m
+  [1m[36mCartItem Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "cart_items" WHERE "cart_items"."product_id" = 2 AND "cart_items"."cart_id" = 14 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mCartItem Create (0.2ms)[0m  [1m[32mINSERT INTO "cart_items" ("cart_id", "product_id", "created_at", "updated_at", "quantity") VALUES (14, 2, '2025-07-29 10:31:20.027391', '2025-07-29 10:31:20.027391', 1) RETURNING "id" /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.6ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 14 AND "cart_items"."product_id" = 2 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 2 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN /*application='MyApp'*/[0m
+  [1m[36mCartItem Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "cart_items" WHERE "cart_items"."product_id" = 2 AND "cart_items"."id" != 24 AND "cart_items"."cart_id" = 14 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mCartItem Update (0.1ms)[0m  [1m[33mUPDATE "cart_items" SET "updated_at" = '2025-07-29 10:31:21.537739', "quantity" = 2 WHERE "cart_items"."id" = 24 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.3ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 14 /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.4ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 14 AND "cart_items"."product_id" = 2 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 2 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN /*application='MyApp'*/[0m
+  [1m[36mCartItem Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "cart_items" WHERE "cart_items"."product_id" = 2 AND "cart_items"."id" != 24 AND "cart_items"."cart_id" = 14 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mCartItem Update (0.1ms)[0m  [1m[33mUPDATE "cart_items" SET "updated_at" = '2025-07-29 10:31:30.345506', "quantity" = 3 WHERE "cart_items"."id" = 24 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.3ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 14 AND "cart_items"."product_id" = 2 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 2 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN /*application='MyApp'*/[0m
+  [1m[36mCartItem Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "cart_items" WHERE "cart_items"."product_id" = 2 AND "cart_items"."id" != 24 AND "cart_items"."cart_id" = 14 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mCartItem Update (0.2ms)[0m  [1m[33mUPDATE "cart_items" SET "updated_at" = '2025-07-29 10:31:39.664816', "quantity" = 4 WHERE "cart_items"."id" = 24 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN /*application='MyApp'*/[0m
+  [1m[36mCart Create (0.4ms)[0m  [1m[32mINSERT INTO "carts" ("created_at", "updated_at") VALUES ('2025-07-29 10:34:05.134285', '2025-07-29 10:34:05.134285') RETURNING "id" /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.2ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 15 AND "cart_items"."product_id" = 2 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 2 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN /*application='MyApp'*/[0m
+  [1m[36mCartItem Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "cart_items" WHERE "cart_items"."product_id" = 2 AND "cart_items"."cart_id" = 15 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mCartItem Create (0.4ms)[0m  [1m[32mINSERT INTO "cart_items" ("cart_id", "product_id", "created_at", "updated_at", "quantity") VALUES (15, 2, '2025-07-29 10:34:10.309395', '2025-07-29 10:34:10.309395', 1) RETURNING "id" /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.4ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 15 /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.3ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 15 AND "cart_items"."product_id" = 2 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 2 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN /*application='MyApp'*/[0m
+  [1m[36mCartItem Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "cart_items" WHERE "cart_items"."product_id" = 2 AND "cart_items"."id" != 25 AND "cart_items"."cart_id" = 15 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mCartItem Update (0.2ms)[0m  [1m[33mUPDATE "cart_items" SET "updated_at" = '2025-07-29 10:34:16.696352', "quantity" = 2 WHERE "cart_items"."id" = 25 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.4ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 15 AND "cart_items"."product_id" = 2 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 2 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='MyApp'*/[0m
+  [1m[36mCartItem Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "cart_items" WHERE "cart_items"."product_id" = 2 AND "cart_items"."id" != 25 AND "cart_items"."cart_id" = 15 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mCartItem Update (0.1ms)[0m  [1m[33mUPDATE "cart_items" SET "updated_at" = '2025-07-29 10:34:23.499556', "quantity" = 3 WHERE "cart_items"."id" = 25 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN /*application='MyApp'*/[0m
+  [1m[36mCart Create (0.4ms)[0m  [1m[32mINSERT INTO "carts" ("created_at", "updated_at") VALUES ('2025-07-29 10:35:00.378402', '2025-07-29 10:35:00.378402') RETURNING "id" /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.2ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 16 AND "cart_items"."product_id" = 2 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 2 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN /*application='MyApp'*/[0m
+  [1m[36mCartItem Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "cart_items" WHERE "cart_items"."product_id" = 2 AND "cart_items"."cart_id" = 16 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mCartItem Create (0.3ms)[0m  [1m[32mINSERT INTO "cart_items" ("cart_id", "product_id", "created_at", "updated_at", "quantity") VALUES (16, 2, '2025-07-29 10:35:00.396323', '2025-07-29 10:35:00.396323', 1) RETURNING "id" /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.4ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 16 /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.5ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 16 AND "cart_items"."product_id" = 2 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 2 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN /*application='MyApp'*/[0m
+  [1m[36mCartItem Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "cart_items" WHERE "cart_items"."product_id" = 2 AND "cart_items"."id" != 26 AND "cart_items"."cart_id" = 16 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mCartItem Update (0.1ms)[0m  [1m[33mUPDATE "cart_items" SET "updated_at" = '2025-07-29 10:35:10.178644', "quantity" = 2 WHERE "cart_items"."id" = 26 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN /*application='MyApp'*/[0m
+  [1m[36mCart Create (0.4ms)[0m  [1m[32mINSERT INTO "carts" ("created_at", "updated_at") VALUES ('2025-07-29 10:39:08.933008', '2025-07-29 10:39:08.933008') RETURNING "id" /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.3ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 17 AND "cart_items"."product_id" = 2 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 2 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN /*application='MyApp'*/[0m
+  [1m[36mCartItem Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "cart_items" WHERE "cart_items"."product_id" = 2 AND "cart_items"."cart_id" = 17 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mCartItem Create (0.3ms)[0m  [1m[32mINSERT INTO "cart_items" ("cart_id", "product_id", "created_at", "updated_at", "quantity") VALUES (17, 2, '2025-07-29 10:39:17.243457', '2025-07-29 10:39:17.243457', 2) RETURNING "id" /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.3ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 17 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN /*application='MyApp'*/[0m
+  [1m[36mCart Create (0.5ms)[0m  [1m[32mINSERT INTO "carts" ("created_at", "updated_at") VALUES ('2025-07-29 10:40:04.601733', '2025-07-29 10:40:04.601733') RETURNING "id" /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.2ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 18 AND "cart_items"."product_id" = 2 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 2 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN /*application='MyApp'*/[0m
+  [1m[36mCartItem Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "cart_items" WHERE "cart_items"."product_id" = 2 AND "cart_items"."cart_id" = 18 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mCartItem Create (0.3ms)[0m  [1m[32mINSERT INTO "cart_items" ("cart_id", "product_id", "created_at", "updated_at", "quantity") VALUES (18, 2, '2025-07-29 10:40:04.614734', '2025-07-29 10:40:04.614734', 1) RETURNING "id" /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.3ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 18 /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.5ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 18 AND "cart_items"."product_id" = 2 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 2 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN /*application='MyApp'*/[0m
+  [1m[36mCartItem Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "cart_items" WHERE "cart_items"."product_id" = 2 AND "cart_items"."id" != 28 AND "cart_items"."cart_id" = 18 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mCartItem Update (0.1ms)[0m  [1m[33mUPDATE "cart_items" SET "updated_at" = '2025-07-29 10:40:12.074611', "quantity" = 2 WHERE "cart_items"."id" = 28 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN /*application='MyApp'*/[0m
+  [1m[36mCart Create (0.5ms)[0m  [1m[32mINSERT INTO "carts" ("created_at", "updated_at") VALUES ('2025-07-29 10:42:25.301964', '2025-07-29 10:42:25.301964') RETURNING "id" /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.2ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 19 AND "cart_items"."product_id" = 2 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 2 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN /*application='MyApp'*/[0m
+  [1m[36mCartItem Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "cart_items" WHERE "cart_items"."product_id" = 2 AND "cart_items"."cart_id" = 19 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mCartItem Create (0.3ms)[0m  [1m[32mINSERT INTO "cart_items" ("cart_id", "product_id", "created_at", "updated_at", "quantity") VALUES (19, 2, '2025-07-29 10:42:28.854726', '2025-07-29 10:42:28.854726', 1) RETURNING "id" /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.4ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 19 /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.3ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 19 AND "cart_items"."product_id" = 2 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 2 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN /*application='MyApp'*/[0m
+  [1m[36mCartItem Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "cart_items" WHERE "cart_items"."product_id" = 2 AND "cart_items"."id" != 29 AND "cart_items"."cart_id" = 19 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mCartItem Update (0.1ms)[0m  [1m[33mUPDATE "cart_items" SET "updated_at" = '2025-07-29 10:42:35.646538', "quantity" = 2 WHERE "cart_items"."id" = 29 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.5ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 19 AND "cart_items"."product_id" = 2 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 2 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='MyApp'*/[0m
+  [1m[36mCartItem Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "cart_items" WHERE "cart_items"."product_id" = 2 AND "cart_items"."id" != 29 AND "cart_items"."cart_id" = 19 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mCartItem Update (0.1ms)[0m  [1m[33mUPDATE "cart_items" SET "updated_at" = '2025-07-29 10:43:06.026123', "quantity" = 3 WHERE "cart_items"."id" = 29 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.3ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 19 AND "cart_items"."product_id" = 2 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.5ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 19 AND "cart_items"."product_id" = 2 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.4ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 19 AND "cart_items"."product_id" = 2 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN /*application='MyApp'*/[0m
+  [1m[36mCartItem Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "cart_items" WHERE "cart_items"."product_id" = 2 AND "cart_items"."id" != 29 AND "cart_items"."cart_id" = 19 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='MyApp'*/[0m
+  [1m[36mCartItem Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "cart_items" WHERE "cart_items"."product_id" = 2 AND "cart_items"."id" != 29 AND "cart_items"."cart_id" = 19 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN /*application='MyApp'*/[0m
+  [1m[36mCart Create (0.4ms)[0m  [1m[32mINSERT INTO "carts" ("created_at", "updated_at") VALUES ('2025-07-29 10:50:09.993819', '2025-07-29 10:50:09.993819') RETURNING "id" /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.2ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 20 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN /*application='MyApp'*/[0m
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 2 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mCartItem Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "cart_items" WHERE "cart_items"."product_id" = 2 AND "cart_items"."cart_id" = 20 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mCartItem Create (0.3ms)[0m  [1m[32mINSERT INTO "cart_items" ("cart_id", "product_id", "created_at", "updated_at", "quantity") VALUES (20, 2, '2025-07-29 10:50:10.007767', '2025-07-29 10:50:10.007767', 1) RETURNING "id" /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN /*application='MyApp'*/[0m
+  [1m[36mCartItem Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "cart_items" WHERE "cart_items"."product_id" = 2 AND "cart_items"."id" != 30 AND "cart_items"."cart_id" = 20 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mCOMMIT /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='MyApp'*/[0m
+  [1m[36mCart Create (0.7ms)[0m  [1m[32mINSERT INTO "carts" ("created_at", "updated_at") VALUES ('2025-07-29 10:51:08.650392', '2025-07-29 10:51:08.650392') RETURNING "id" /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.2ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 21 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='MyApp'*/[0m
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 2 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mCartItem Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "cart_items" WHERE "cart_items"."product_id" = 2 AND "cart_items"."cart_id" = 21 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mCartItem Create (0.3ms)[0m  [1m[32mINSERT INTO "cart_items" ("cart_id", "product_id", "created_at", "updated_at", "quantity") VALUES (21, 2, '2025-07-29 10:51:14.604096', '2025-07-29 10:51:14.604096', 1) RETURNING "id" /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN /*application='MyApp'*/[0m
+  [1m[36mCartItem Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "cart_items" WHERE "cart_items"."product_id" = 2 AND "cart_items"."id" != 31 AND "cart_items"."cart_id" = 21 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mCOMMIT /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN /*application='MyApp'*/[0m
+  [1m[36mCart Create (0.4ms)[0m  [1m[32mINSERT INTO "carts" ("created_at", "updated_at") VALUES ('2025-07-29 10:51:59.822914', '2025-07-29 10:51:59.822914') RETURNING "id" /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.2ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 22 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN /*application='MyApp'*/[0m
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 2 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mCartItem Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "cart_items" WHERE "cart_items"."product_id" = 2 AND "cart_items"."cart_id" = 22 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mCartItem Create (0.3ms)[0m  [1m[32mINSERT INTO "cart_items" ("cart_id", "product_id", "created_at", "updated_at", "quantity") VALUES (22, 2, '2025-07-29 10:52:03.328625', '2025-07-29 10:52:03.328625', 1) RETURNING "id" /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='MyApp'*/[0m
+  [1m[36mCartItem Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "cart_items" WHERE "cart_items"."product_id" = 2 AND "cart_items"."id" != 32 AND "cart_items"."cart_id" = 22 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mCOMMIT /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN /*application='MyApp'*/[0m
+  [1m[36mProduct Load (0.8ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 2 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mCartItem Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "cart_items" WHERE "cart_items"."product_id" = 2 AND "cart_items"."cart_id" = 22 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN /*application='MyApp'*/[0m
+  [1m[36mCartItem Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "cart_items" WHERE "cart_items"."product_id" = 2 AND "cart_items"."cart_id" = 22 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN /*application='MyApp'*/[0m
+  [1m[36mProduct Load (0.7ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 2 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mCartItem Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "cart_items" WHERE "cart_items"."product_id" = 2 AND "cart_items"."cart_id" = 22 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN /*application='MyApp'*/[0m
+  [1m[36mCartItem Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "cart_items" WHERE "cart_items"."product_id" = 2 AND "cart_items"."cart_id" = 22 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='MyApp'*/[0m
+  [1m[36mCart Create (0.4ms)[0m  [1m[32mINSERT INTO "carts" ("created_at", "updated_at") VALUES ('2025-07-29 10:52:42.780640', '2025-07-29 10:52:42.780640') RETURNING "id" /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.3ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 23 /* loading for pp */ LIMIT 11 /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.3ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 23 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN /*application='MyApp'*/[0m
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 2 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mCartItem Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "cart_items" WHERE "cart_items"."product_id" = 2 AND "cart_items"."cart_id" = 23 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mCartItem Create (0.3ms)[0m  [1m[32mINSERT INTO "cart_items" ("cart_id", "product_id", "created_at", "updated_at", "quantity") VALUES (23, 2, '2025-07-29 10:52:48.957217', '2025-07-29 10:52:48.957217', 1) RETURNING "id" /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN /*application='MyApp'*/[0m
+  [1m[36mCartItem Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "cart_items" WHERE "cart_items"."product_id" = 2 AND "cart_items"."id" != 33 AND "cart_items"."cart_id" = 23 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mCOMMIT /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN /*application='MyApp'*/[0m
+  [1m[36mCart Create (0.5ms)[0m  [1m[32mINSERT INTO "carts" ("created_at", "updated_at") VALUES ('2025-07-29 10:53:32.412522', '2025-07-29 10:53:32.412522') RETURNING "id" /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.2ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 24 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='MyApp'*/[0m
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 2 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mCartItem Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "cart_items" WHERE "cart_items"."product_id" = 2 AND "cart_items"."cart_id" = 24 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mCartItem Create (0.3ms)[0m  [1m[32mINSERT INTO "cart_items" ("cart_id", "product_id", "created_at", "updated_at", "quantity") VALUES (24, 2, '2025-07-29 10:53:32.426305', '2025-07-29 10:53:32.426305', 1) RETURNING "id" /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN /*application='MyApp'*/[0m
+  [1m[36mCartItem Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "cart_items" WHERE "cart_items"."product_id" = 2 AND "cart_items"."id" != 34 AND "cart_items"."cart_id" = 24 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mCOMMIT /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN /*application='MyApp'*/[0m
+  [1m[36mCartItem Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "cart_items" WHERE "cart_items"."product_id" = 2 AND "cart_items"."id" != 34 AND "cart_items"."cart_id" = 24 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mCOMMIT /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.4ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 24 AND "cart_items"."product_id" = 2 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 2 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN /*application='MyApp'*/[0m
+  [1m[36mCartItem Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "cart_items" WHERE "cart_items"."product_id" = 2 AND "cart_items"."id" != 34 AND "cart_items"."cart_id" = 24 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mCartItem Update (0.1ms)[0m  [1m[33mUPDATE "cart_items" SET "updated_at" = '2025-07-29 10:53:42.278467', "quantity" = 2 WHERE "cart_items"."id" = 34 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN /*application='MyApp'*/[0m
+  [1m[36mCart Create (0.4ms)[0m  [1m[32mINSERT INTO "carts" ("created_at", "updated_at") VALUES ('2025-07-29 10:55:13.851111', '2025-07-29 10:55:13.851111') RETURNING "id" /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.2ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 25 /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.3ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 25 AND "cart_items"."product_id" = 2 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 2 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='MyApp'*/[0m
+  [1m[36mCartItem Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "cart_items" WHERE "cart_items"."product_id" = 2 AND "cart_items"."cart_id" = 25 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mCartItem Create (0.3ms)[0m  [1m[32mINSERT INTO "cart_items" ("cart_id", "product_id", "created_at", "updated_at", "quantity") VALUES (25, 2, '2025-07-29 10:55:21.035918', '2025-07-29 10:55:21.035918', 1) RETURNING "id" /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.3ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 25 AND "cart_items"."product_id" = 2 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 2 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN /*application='MyApp'*/[0m
+  [1m[36mCartItem Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "cart_items" WHERE "cart_items"."product_id" = 2 AND "cart_items"."id" != 35 AND "cart_items"."cart_id" = 25 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mCOMMIT /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.4ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 25 AND "cart_items"."product_id" = 2 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 2 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN /*application='MyApp'*/[0m
+  [1m[36mCartItem Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "cart_items" WHERE "cart_items"."product_id" = 2 AND "cart_items"."id" != 35 AND "cart_items"."cart_id" = 25 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mCOMMIT /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN /*application='MyApp'*/[0m
+  [1m[36mCart Create (0.5ms)[0m  [1m[32mINSERT INTO "carts" ("created_at", "updated_at") VALUES ('2025-07-29 10:57:22.241574', '2025-07-29 10:57:22.241574') RETURNING "id" /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mCOMMIT /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.3ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 26 AND "cart_items"."product_id" = 2 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 2 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.1ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 26 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN /*application='MyApp'*/[0m
+  [1m[36mCartItem Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "cart_items" WHERE "cart_items"."product_id" = 2 AND "cart_items"."cart_id" = 26 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mCartItem Create (0.3ms)[0m  [1m[32mINSERT INTO "cart_items" ("cart_id", "product_id", "created_at", "updated_at", "quantity") VALUES (26, 2, '2025-07-29 10:57:27.986655', '2025-07-29 10:57:27.986655', 1) RETURNING "id" /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.3ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 26 AND "cart_items"."product_id" = 2 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 2 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN /*application='MyApp'*/[0m
+  [1m[36mCartItem Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "cart_items" WHERE "cart_items"."product_id" = 2 AND "cart_items"."id" != 36 AND "cart_items"."cart_id" = 26 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mCOMMIT /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN /*application='MyApp'*/[0m
+  [1m[36mCart Create (0.5ms)[0m  [1m[32mINSERT INTO "carts" ("created_at", "updated_at") VALUES ('2025-07-29 10:58:49.652465', '2025-07-29 10:58:49.652465') RETURNING "id" /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.2ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 27 AND "cart_items"."product_id" = 2 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 2 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.1ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 27 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN /*application='MyApp'*/[0m
+  [1m[36mCartItem Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "cart_items" WHERE "cart_items"."product_id" = 2 AND "cart_items"."cart_id" = 27 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mCartItem Create (0.3ms)[0m  [1m[32mINSERT INTO "cart_items" ("cart_id", "product_id", "created_at", "updated_at", "quantity") VALUES (27, 2, '2025-07-29 10:58:49.666712', '2025-07-29 10:58:49.666712', 1) RETURNING "id" /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='MyApp'*/[0m
+  [1m[36mCart Create (0.4ms)[0m  [1m[32mINSERT INTO "carts" ("created_at", "updated_at") VALUES ('2025-07-29 10:59:15.655333', '2025-07-29 10:59:15.655333') RETURNING "id" /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.2ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 28 AND "cart_items"."product_id" = 2 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 2 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.5ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 28 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN /*application='MyApp'*/[0m
+  [1m[36mCartItem Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "cart_items" WHERE "cart_items"."product_id" = 2 AND "cart_items"."cart_id" = 28 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mCartItem Create (0.1ms)[0m  [1m[32mINSERT INTO "cart_items" ("cart_id", "product_id", "created_at", "updated_at", "quantity") VALUES (28, 2, '2025-07-29 10:59:15.659166', '2025-07-29 10:59:15.659166', 1) RETURNING "id" /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN /*application='MyApp'*/[0m
+  [1m[36mCart Create (0.4ms)[0m  [1m[32mINSERT INTO "carts" ("created_at", "updated_at") VALUES ('2025-07-29 11:00:25.182400', '2025-07-29 11:00:25.182400') RETURNING "id" /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.2ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 29 AND "cart_items"."product_id" = 2 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 2 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.1ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 29 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN /*application='MyApp'*/[0m
+  [1m[36mCartItem Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "cart_items" WHERE "cart_items"."product_id" = 2 AND "cart_items"."cart_id" = 29 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mCartItem Create (0.3ms)[0m  [1m[32mINSERT INTO "cart_items" ("cart_id", "product_id", "created_at", "updated_at", "quantity") VALUES (29, 2, '2025-07-29 11:00:30.948165', '2025-07-29 11:00:30.948165', 1) RETURNING "id" /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.4ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 29 AND "cart_items"."product_id" = 2 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 2 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN /*application='MyApp'*/[0m
+  [1m[36mCartItem Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "cart_items" WHERE "cart_items"."product_id" = 2 AND "cart_items"."id" != 39 AND "cart_items"."cart_id" = 29 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mCOMMIT /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='MyApp'*/[0m
+  [1m[36mCart Create (0.5ms)[0m  [1m[32mINSERT INTO "carts" ("created_at", "updated_at") VALUES ('2025-07-29 11:01:39.402720', '2025-07-29 11:01:39.402720') RETURNING "id" /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.2ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 30 AND "cart_items"."product_id" = 2 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 2 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.1ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 30 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN /*application='MyApp'*/[0m
+  [1m[36mCartItem Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "cart_items" WHERE "cart_items"."product_id" = 2 AND "cart_items"."cart_id" = 30 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mCartItem Create (0.3ms)[0m  [1m[32mINSERT INTO "cart_items" ("cart_id", "product_id", "created_at", "updated_at", "quantity") VALUES (30, 2, '2025-07-29 11:01:43.406234', '2025-07-29 11:01:43.406234', 2) RETURNING "id" /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT /*application='MyApp'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='MyApp'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='MyApp'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='MyApp'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(4346549080646495835) /*application='MyApp'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='MyApp'*/[0m
+Migrating to AddQuantityToCartItems (20250729082211)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN /*application='MyApp'*/[0m
+  [1m[35m (1.6ms)[0m  [1m[35mALTER TABLE "cart_items" DROP COLUMN "quantity" /*application='MyApp'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Destroy (0.2ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = '20250729082211' /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT /*application='MyApp'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_advisory_unlock(4346549080646495835) /*application='MyApp'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='MyApp'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT pg_try_advisory_lock(4346549080646495835) /*application='MyApp'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='MyApp'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='MyApp'*/[0m
+Migrating to AddQuantityToCartItems (20250729082211)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='MyApp'*/[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "cart_items" ADD "quantity" integer DEFAULT 0 NOT NULL /*application='MyApp'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20250729082211') RETURNING "version" /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT /*application='MyApp'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_advisory_unlock(4346549080646495835) /*application='MyApp'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN /*application='MyApp'*/[0m
+  [1m[36mCart Create (0.4ms)[0m  [1m[32mINSERT INTO "carts" ("created_at", "updated_at") VALUES ('2025-07-29 11:04:54.818726', '2025-07-29 11:04:54.818726') RETURNING "id" /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.2ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 31 AND "cart_items"."product_id" = 2 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 2 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.1ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 31 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN /*application='MyApp'*/[0m
+  [1m[36mCartItem Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "cart_items" WHERE "cart_items"."product_id" = 2 AND "cart_items"."cart_id" = 31 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mCartItem Create (0.2ms)[0m  [1m[32mINSERT INTO "cart_items" ("cart_id", "product_id", "created_at", "updated_at", "quantity") VALUES (31, 2, '2025-07-29 11:04:54.831127', '2025-07-29 11:04:54.831127', 1) RETURNING "id" /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='MyApp'*/[0m
+  [1m[36mCart Create (0.4ms)[0m  [1m[32mINSERT INTO "carts" ("created_at", "updated_at") VALUES ('2025-07-29 11:04:58.467156', '2025-07-29 11:04:58.467156') RETURNING "id" /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.2ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 32 AND "cart_items"."product_id" = 2 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 2 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.1ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 32 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN /*application='MyApp'*/[0m
+  [1m[36mCartItem Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "cart_items" WHERE "cart_items"."product_id" = 2 AND "cart_items"."cart_id" = 32 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mCartItem Create (0.1ms)[0m  [1m[32mINSERT INTO "cart_items" ("cart_id", "product_id", "created_at", "updated_at", "quantity") VALUES (32, 2, '2025-07-29 11:04:58.470943', '2025-07-29 11:04:58.470943', 1) RETURNING "id" /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.3ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 32 AND "cart_items"."product_id" = 2 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 2 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN /*application='MyApp'*/[0m
+  [1m[36mCartItem Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "cart_items" WHERE "cart_items"."product_id" = 2 AND "cart_items"."id" != 42 AND "cart_items"."cart_id" = 32 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mCOMMIT /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.4ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 32 AND "cart_items"."product_id" = 2 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 2 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN /*application='MyApp'*/[0m
+  [1m[36mCartItem Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "cart_items" WHERE "cart_items"."product_id" = 2 AND "cart_items"."id" != 42 AND "cart_items"."cart_id" = 32 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mCOMMIT /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.3ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 32 AND "cart_items"."product_id" = 2 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 2 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN /*application='MyApp'*/[0m
+  [1m[36mCartItem Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "cart_items" WHERE "cart_items"."product_id" = 2 AND "cart_items"."id" != 42 AND "cart_items"."cart_id" = 32 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mCOMMIT /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.3ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 32 AND "cart_items"."product_id" = 2 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 2 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN /*application='MyApp'*/[0m
+  [1m[36mCartItem Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "cart_items" WHERE "cart_items"."product_id" = 2 AND "cart_items"."id" != 42 AND "cart_items"."cart_id" = 32 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mCOMMIT /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.3ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 32 AND "cart_items"."product_id" = 2 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 2 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN /*application='MyApp'*/[0m
+  [1m[36mCartItem Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "cart_items" WHERE "cart_items"."product_id" = 2 AND "cart_items"."id" != 42 AND "cart_items"."cart_id" = 32 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mCOMMIT /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.3ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 32 AND "cart_items"."product_id" = 2 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 2 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN /*application='MyApp'*/[0m
+  [1m[36mCartItem Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "cart_items" WHERE "cart_items"."product_id" = 2 AND "cart_items"."id" != 42 AND "cart_items"."cart_id" = 32 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mCOMMIT /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.3ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 32 AND "cart_items"."product_id" = 3 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.3ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 32 AND "cart_items"."product_id" = 3 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='MyApp'*/[0m
+  [1m[36mProduct Load (0.5ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 3 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mCartItem Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "cart_items" WHERE "cart_items"."product_id" = 3 AND "cart_items"."cart_id" = 32 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mCartItem Create (0.3ms)[0m  [1m[32mINSERT INTO "cart_items" ("cart_id", "product_id", "created_at", "updated_at", "quantity") VALUES (32, 3, '2025-07-29 11:06:46.724352', '2025-07-29 11:06:46.724352', 0) RETURNING "id" /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='MyApp'*/[0m
+  [1m[36mCartItem Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "cart_items" WHERE "cart_items"."product_id" = 2 AND "cart_items"."id" != 42 AND "cart_items"."cart_id" = 32 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mCartItem Update (0.2ms)[0m  [1m[33mUPDATE "cart_items" SET "updated_at" = '2025-07-29 11:08:27.173392', "quantity" = 2 WHERE "cart_items"."id" = 42 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN /*application='MyApp'*/[0m
+  [1m[36mCart Create (0.5ms)[0m  [1m[32mINSERT INTO "carts" ("created_at", "updated_at") VALUES ('2025-07-29 11:09:40.887640', '2025-07-29 11:09:40.887640') RETURNING "id" /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.3ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 33 AND "cart_items"."product_id" = 2 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 2 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN /*application='MyApp'*/[0m
+  [1m[36mCartItem Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "cart_items" WHERE "cart_items"."product_id" = 2 AND "cart_items"."cart_id" = 33 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mCartItem Create (0.3ms)[0m  [1m[32mINSERT INTO "cart_items" ("cart_id", "product_id", "created_at", "updated_at", "quantity") VALUES (33, 2, '2025-07-29 11:09:40.902618', '2025-07-29 11:09:40.902618', 1) RETURNING "id" /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.1ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 33 /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.3ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 33 AND "cart_items"."product_id" = 2 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 2 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='MyApp'*/[0m
+  [1m[36mCartItem Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "cart_items" WHERE "cart_items"."product_id" = 2 AND "cart_items"."id" != 44 AND "cart_items"."cart_id" = 33 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mCartItem Update (0.1ms)[0m  [1m[33mUPDATE "cart_items" SET "updated_at" = '2025-07-29 11:10:06.087526', "quantity" = 2 WHERE "cart_items"."id" = 44 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.5ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 33 AND "cart_items"."product_id" = 2 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 2 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN /*application='MyApp'*/[0m
+  [1m[36mCartItem Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "cart_items" WHERE "cart_items"."product_id" = 2 AND "cart_items"."id" != 44 AND "cart_items"."cart_id" = 33 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mCartItem Update (0.1ms)[0m  [1m[33mUPDATE "cart_items" SET "updated_at" = '2025-07-29 11:11:17.231161', "quantity" = 3 WHERE "cart_items"."id" = 44 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT /*application='MyApp'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='MyApp'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='MyApp'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='MyApp'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(4346549080646495835) /*application='MyApp'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='MyApp'*/[0m
+Migrating to AddQuantityToCartItems (20250729082211)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN /*application='MyApp'*/[0m
+  [1m[35m (0.9ms)[0m  [1m[35mALTER TABLE "cart_items" DROP COLUMN "quantity" /*application='MyApp'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Destroy (0.3ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = '20250729082211' /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT /*application='MyApp'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_advisory_unlock(4346549080646495835) /*application='MyApp'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='MyApp'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(4346549080646495835) /*application='MyApp'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='MyApp'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='MyApp'*/[0m
+Migrating to AddQuantityToCartItems (20250729082211)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN /*application='MyApp'*/[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "cart_items" ADD "quantity" integer DEFAULT 1 NOT NULL /*application='MyApp'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20250729082211') RETURNING "version" /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT /*application='MyApp'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_advisory_unlock(4346549080646495835) /*application='MyApp'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN /*application='MyApp'*/[0m
+  [1m[36mCart Create (0.6ms)[0m  [1m[32mINSERT INTO "carts" ("created_at", "updated_at") VALUES ('2025-07-29 11:12:19.674285', '2025-07-29 11:12:19.674285') RETURNING "id" /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.3ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 34 AND "cart_items"."product_id" = 2 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 2 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN /*application='MyApp'*/[0m
+  [1m[36mCartItem Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "cart_items" WHERE "cart_items"."product_id" = 2 AND "cart_items"."cart_id" = 34 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mCartItem Create (0.3ms)[0m  [1m[32mINSERT INTO "cart_items" ("cart_id", "product_id", "created_at", "updated_at", "quantity") VALUES (34, 2, '2025-07-29 11:12:25.942783', '2025-07-29 11:12:25.942783', 2) RETURNING "id" /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.1ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 34 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN /*application='MyApp'*/[0m
+  [1m[36mCart Create (0.5ms)[0m  [1m[32mINSERT INTO "carts" ("created_at", "updated_at") VALUES ('2025-07-29 11:13:06.461920', '2025-07-29 11:13:06.461920') RETURNING "id" /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.2ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 35 AND "cart_items"."product_id" = 2 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 2 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN /*application='MyApp'*/[0m
+  [1m[36mCartItem Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "cart_items" WHERE "cart_items"."product_id" = 2 AND "cart_items"."cart_id" = 35 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mCartItem Create (0.3ms)[0m  [1m[32mINSERT INTO "cart_items" ("cart_id", "product_id", "created_at", "updated_at", "quantity") VALUES (35, 2, '2025-07-29 11:13:06.475068', '2025-07-29 11:13:06.475068', 1) RETURNING "id" /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.1ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 35 /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.5ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 35 AND "cart_items"."product_id" = 2 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 2 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN /*application='MyApp'*/[0m
+  [1m[36mCartItem Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "cart_items" WHERE "cart_items"."product_id" = 2 AND "cart_items"."id" != 46 AND "cart_items"."cart_id" = 35 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mCartItem Update (0.1ms)[0m  [1m[33mUPDATE "cart_items" SET "updated_at" = '2025-07-29 11:13:11.842991', "quantity" = 2 WHERE "cart_items"."id" = 46 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.3ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 35 AND "cart_items"."product_id" = 2 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.3ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 35 AND "cart_items"."product_id" = 2 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.4ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 35 AND "cart_items"."product_id" = 2 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='MyApp'*/[0m
+  [1m[36mCart Create (0.4ms)[0m  [1m[32mINSERT INTO "carts" ("created_at", "updated_at") VALUES ('2025-07-29 11:14:53.982830', '2025-07-29 11:14:53.982830') RETURNING "id" /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.2ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 36 AND "cart_items"."product_id" = 2 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 2 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN /*application='MyApp'*/[0m
+  [1m[36mCartItem Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "cart_items" WHERE "cart_items"."product_id" = 2 AND "cart_items"."cart_id" = 36 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mCartItem Create (0.3ms)[0m  [1m[32mINSERT INTO "cart_items" ("cart_id", "product_id", "created_at", "updated_at", "quantity") VALUES (36, 2, '2025-07-29 11:15:02.153208', '2025-07-29 11:15:02.153208', 1) RETURNING "id" /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.1ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 36 /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.4ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 36 AND "cart_items"."product_id" = 2 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.3ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 36 AND "cart_items"."product_id" = 2 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 2 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN /*application='MyApp'*/[0m
+  [1m[36mCartItem Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "cart_items" WHERE "cart_items"."product_id" = 2 AND "cart_items"."id" != 47 AND "cart_items"."cart_id" = 36 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mCartItem Update (0.1ms)[0m  [1m[33mUPDATE "cart_items" SET "updated_at" = '2025-07-29 11:15:28.658164', "quantity" = 2 WHERE "cart_items"."id" = 47 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.3ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 36 AND "cart_items"."product_id" = 2 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN /*application='MyApp'*/[0m
+  [1m[36mCart Create (0.4ms)[0m  [1m[32mINSERT INTO "carts" ("created_at", "updated_at") VALUES ('2025-07-29 11:16:11.050286', '2025-07-29 11:16:11.050286') RETURNING "id" /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.3ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 37 AND "cart_items"."product_id" = 2 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 2 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN /*application='MyApp'*/[0m
+  [1m[36mCartItem Create (0.4ms)[0m  [1m[32mINSERT INTO "cart_items" ("cart_id", "product_id", "created_at", "updated_at", "quantity") VALUES (37, 2, '2025-07-29 11:16:11.062550', '2025-07-29 11:16:11.062550', 1) RETURNING "id" /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.1ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 37 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='MyApp'*/[0m
+  [1m[36mCart Create (0.4ms)[0m  [1m[32mINSERT INTO "carts" ("created_at", "updated_at") VALUES ('2025-07-29 11:16:12.869370', '2025-07-29 11:16:12.869370') RETURNING "id" /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.1ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 38 AND "cart_items"."product_id" = 2 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 2 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN /*application='MyApp'*/[0m
+  [1m[36mCartItem Create (0.3ms)[0m  [1m[32mINSERT INTO "cart_items" ("cart_id", "product_id", "created_at", "updated_at", "quantity") VALUES (38, 2, '2025-07-29 11:16:12.871519', '2025-07-29 11:16:12.871519', 1) RETURNING "id" /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.1ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 38 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='MyApp'*/[0m
+  [1m[36mCart Create (0.4ms)[0m  [1m[32mINSERT INTO "carts" ("created_at", "updated_at") VALUES ('2025-07-29 11:16:40.011263', '2025-07-29 11:16:40.011263') RETURNING "id" /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.1ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 39 AND "cart_items"."product_id" = 2 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 2 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN /*application='MyApp'*/[0m
+  [1m[36mCartItem Create (0.2ms)[0m  [1m[32mINSERT INTO "cart_items" ("cart_id", "product_id", "created_at", "updated_at", "quantity") VALUES (39, 2, '2025-07-29 11:16:40.014196', '2025-07-29 11:16:40.014196', 1) RETURNING "id" /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.1ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 39 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='MyApp'*/[0m
+  [1m[36mCart Create (0.4ms)[0m  [1m[32mINSERT INTO "carts" ("created_at", "updated_at") VALUES ('2025-07-29 11:16:42.635405', '2025-07-29 11:16:42.635405') RETURNING "id" /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.2ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 40 AND "cart_items"."product_id" = 2 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 2 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN /*application='MyApp'*/[0m
+  [1m[36mCartItem Create (0.2ms)[0m  [1m[32mINSERT INTO "cart_items" ("cart_id", "product_id", "created_at", "updated_at", "quantity") VALUES (40, 2, '2025-07-29 11:16:42.638384', '2025-07-29 11:16:42.638384', 1) RETURNING "id" /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.1ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 40 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='MyApp'*/[0m
+  [1m[36mCart Create (0.5ms)[0m  [1m[32mINSERT INTO "carts" ("created_at", "updated_at") VALUES ('2025-07-29 11:16:49.543416', '2025-07-29 11:16:49.543416') RETURNING "id" /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.3ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 41 AND "cart_items"."product_id" = 2 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 2 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN /*application='MyApp'*/[0m
+  [1m[36mCartItem Create (0.2ms)[0m  [1m[32mINSERT INTO "cart_items" ("cart_id", "product_id", "created_at", "updated_at", "quantity") VALUES (41, 2, '2025-07-29 11:16:49.547342', '2025-07-29 11:16:49.547342', 1) RETURNING "id" /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.1ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 41 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='MyApp'*/[0m
+  [1m[36mCart Create (0.4ms)[0m  [1m[32mINSERT INTO "carts" ("created_at", "updated_at") VALUES ('2025-07-29 11:16:50.901846', '2025-07-29 11:16:50.901846') RETURNING "id" /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.2ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 42 AND "cart_items"."product_id" = 2 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 2 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN /*application='MyApp'*/[0m
+  [1m[36mCartItem Create (0.2ms)[0m  [1m[32mINSERT INTO "cart_items" ("cart_id", "product_id", "created_at", "updated_at", "quantity") VALUES (42, 2, '2025-07-29 11:16:50.904492', '2025-07-29 11:16:50.904492', 1) RETURNING "id" /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.1ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 42 /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.3ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 42 AND "cart_items"."product_id" = 2 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 2 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='MyApp'*/[0m
+  [1m[36mCartItem Update (0.3ms)[0m  [1m[33mUPDATE "cart_items" SET "updated_at" = '2025-07-29 11:17:01.908535', "quantity" = 2 WHERE "cart_items"."id" = 53 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.6ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 42 AND "cart_items"."product_id" = 2 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 2 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN /*application='MyApp'*/[0m
+  [1m[36mCartItem Update (0.2ms)[0m  [1m[33mUPDATE "cart_items" SET "updated_at" = '2025-07-29 11:17:10.031866', "quantity" = 3 WHERE "cart_items"."id" = 53 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.3ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 42 /* loading for pp */ LIMIT 11 /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.3ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 42 AND "cart_items"."product_id" = 2 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 2 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN /*application='MyApp'*/[0m
+  [1m[36mCartItem Update (0.2ms)[0m  [1m[33mUPDATE "cart_items" SET "updated_at" = '2025-07-29 11:21:27.826421', "quantity" = 4 WHERE "cart_items"."id" = 53 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.3ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 42 /*application='MyApp'*/[0m
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 2 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.3ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 42 AND "cart_items"."product_id" = 2 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 2 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='MyApp'*/[0m
+  [1m[36mCartItem Update (0.3ms)[0m  [1m[33mUPDATE "cart_items" SET "updated_at" = '2025-07-29 11:22:15.307148', "quantity" = 5 WHERE "cart_items"."id" = 53 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.3ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 42 /*application='MyApp'*/[0m
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 2 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='MyApp'*/[0m
+  [1m[36mCart Create (0.5ms)[0m  [1m[32mINSERT INTO "carts" ("created_at", "updated_at") VALUES ('2025-07-29 11:23:05.237742', '2025-07-29 11:23:05.237742') RETURNING "id" /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.3ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 43 /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.3ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 43 AND "cart_items"."product_id" = 2 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 2 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN /*application='MyApp'*/[0m
+  [1m[36mCartItem Create (0.3ms)[0m  [1m[32mINSERT INTO "cart_items" ("cart_id", "product_id", "created_at", "updated_at", "quantity") VALUES (43, 2, '2025-07-29 11:23:19.458467', '2025-07-29 11:23:19.458467', 1) RETURNING "id" /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.3ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 43 AND "cart_items"."product_id" = 2 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 2 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN /*application='MyApp'*/[0m
+  [1m[36mCartItem Update (0.3ms)[0m  [1m[33mUPDATE "cart_items" SET "updated_at" = '2025-07-29 11:23:22.624924', "quantity" = 2 WHERE "cart_items"."id" = 54 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.3ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 43 AND "cart_items"."product_id" = 2 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 2 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN /*application='MyApp'*/[0m
+  [1m[36mCartItem Update (0.3ms)[0m  [1m[33mUPDATE "cart_items" SET "updated_at" = '2025-07-29 11:23:24.200645', "quantity" = 3 WHERE "cart_items"."id" = 54 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.3ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 43 AND "cart_items"."product_id" = 2 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 2 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='MyApp'*/[0m
+  [1m[36mCartItem Update (0.3ms)[0m  [1m[33mUPDATE "cart_items" SET "updated_at" = '2025-07-29 11:23:24.786781', "quantity" = 4 WHERE "cart_items"."id" = 54 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.3ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 43 AND "cart_items"."product_id" = 2 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 2 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN /*application='MyApp'*/[0m
+  [1m[36mCartItem Update (0.2ms)[0m  [1m[33mUPDATE "cart_items" SET "updated_at" = '2025-07-29 11:23:25.245438', "quantity" = 5 WHERE "cart_items"."id" = 54 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.3ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 43 /*application='MyApp'*/[0m
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 2 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.3ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 43 AND "cart_items"."product_id" = 1 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 1 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='MyApp'*/[0m
+  [1m[36mCartItem Create (0.3ms)[0m  [1m[32mINSERT INTO "cart_items" ("cart_id", "product_id", "created_at", "updated_at", "quantity") VALUES (43, 1, '2025-07-29 11:23:46.629203', '2025-07-29 11:23:46.629203', 2) RETURNING "id" /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.6ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 43 AND "cart_items"."product_id" = 1 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 1 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN /*application='MyApp'*/[0m
+  [1m[36mCartItem Update (0.2ms)[0m  [1m[33mUPDATE "cart_items" SET "updated_at" = '2025-07-29 11:23:48.437021', "quantity" = 4 WHERE "cart_items"."id" = 55 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.3ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 43 AND "cart_items"."product_id" = 1 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 1 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='MyApp'*/[0m
+  [1m[36mCartItem Update (0.3ms)[0m  [1m[33mUPDATE "cart_items" SET "updated_at" = '2025-07-29 11:23:50.309870', "quantity" = 6 WHERE "cart_items"."id" = 55 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.4ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 43 /*application='MyApp'*/[0m
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 2 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 1 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='MyApp'*/[0m
+  [1m[36mCart Create (0.4ms)[0m  [1m[32mINSERT INTO "carts" ("created_at", "updated_at") VALUES ('2025-07-29 11:24:21.850505', '2025-07-29 11:24:21.850505') RETURNING "id" /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.3ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 44 AND "cart_items"."product_id" = 1 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 1 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN /*application='MyApp'*/[0m
+  [1m[36mCartItem Create (0.3ms)[0m  [1m[32mINSERT INTO "cart_items" ("cart_id", "product_id", "created_at", "updated_at", "quantity") VALUES (44, 1, '2025-07-29 11:24:26.576523', '2025-07-29 11:24:26.576523', 2) RETURNING "id" /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.1ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 44 /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.3ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 44 AND "cart_items"."product_id" = 1 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 1 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='MyApp'*/[0m
+  [1m[36mCartItem Update (0.3ms)[0m  [1m[33mUPDATE "cart_items" SET "updated_at" = '2025-07-29 11:24:27.509949', "quantity" = 4 WHERE "cart_items"."id" = 56 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.3ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 44 AND "cart_items"."product_id" = 1 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 1 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN /*application='MyApp'*/[0m
+  [1m[36mCartItem Update (0.2ms)[0m  [1m[33mUPDATE "cart_items" SET "updated_at" = '2025-07-29 11:24:27.984055', "quantity" = 6 WHERE "cart_items"."id" = 56 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.3ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 44 AND "cart_items"."product_id" = 2 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 2 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='MyApp'*/[0m
+  [1m[36mCartItem Create (0.4ms)[0m  [1m[32mINSERT INTO "cart_items" ("cart_id", "product_id", "created_at", "updated_at", "quantity") VALUES (44, 2, '2025-07-29 11:24:30.989365', '2025-07-29 11:24:30.989365', 1) RETURNING "id" /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.3ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 44 AND "cart_items"."product_id" = 3 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 3 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN /*application='MyApp'*/[0m
+  [1m[36mCartItem Create (0.2ms)[0m  [1m[32mINSERT INTO "cart_items" ("cart_id", "product_id", "created_at", "updated_at", "quantity") VALUES (44, 3, '2025-07-29 11:24:32.397482', '2025-07-29 11:24:32.397482', 1) RETURNING "id" /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.4ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 44 /*application='MyApp'*/[0m
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 3 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 1 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 2 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='MyApp'*/[0m
+  [1m[36mCart Create (0.4ms)[0m  [1m[32mINSERT INTO "carts" ("created_at", "updated_at") VALUES ('2025-07-29 11:27:17.439675', '2025-07-29 11:27:17.439675') RETURNING "id" /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.3ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 45 AND "cart_items"."product_id" = 1 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 1 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN /*application='MyApp'*/[0m
+  [1m[36mCartItem Create (0.3ms)[0m  [1m[32mINSERT INTO "cart_items" ("cart_id", "product_id", "created_at", "updated_at", "quantity") VALUES (45, 1, '2025-07-29 11:27:25.140413', '2025-07-29 11:27:25.140413', 2) RETURNING "id" /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.1ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 45 /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.3ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 45 AND "cart_items"."product_id" = 1 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 1 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN /*application='MyApp'*/[0m
+  [1m[36mCartItem Update (0.3ms)[0m  [1m[33mUPDATE "cart_items" SET "updated_at" = '2025-07-29 11:27:26.104582', "quantity" = 4 WHERE "cart_items"."id" = 59 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.4ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 45 AND "cart_items"."product_id" = 3 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 3 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN /*application='MyApp'*/[0m
+  [1m[36mCartItem Create (0.3ms)[0m  [1m[32mINSERT INTO "cart_items" ("cart_id", "product_id", "created_at", "updated_at", "quantity") VALUES (45, 3, '2025-07-29 11:27:39.523872', '2025-07-29 11:27:39.523872', 1) RETURNING "id" /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.3ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 45 AND "cart_items"."product_id" = 2 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 2 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN /*application='MyApp'*/[0m
+  [1m[36mCartItem Create (0.4ms)[0m  [1m[32mINSERT INTO "cart_items" ("cart_id", "product_id", "created_at", "updated_at", "quantity") VALUES (45, 2, '2025-07-29 11:27:40.939393', '2025-07-29 11:27:40.939393', 1) RETURNING "id" /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.5ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 45 /*application='MyApp'*/[0m
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 1 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 3 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 2 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='MyApp'*/[0m
+  [1m[36mCart Create (0.4ms)[0m  [1m[32mINSERT INTO "carts" ("created_at", "updated_at") VALUES ('2025-07-29 11:31:25.586508', '2025-07-29 11:31:25.586508') RETURNING "id" /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mCOMMIT /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.3ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 46 AND "cart_items"."product_id" = 1 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 1 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN /*application='MyApp'*/[0m
+  [1m[36mCartItem Create (0.3ms)[0m  [1m[32mINSERT INTO "cart_items" ("cart_id", "product_id", "created_at", "updated_at", "quantity") VALUES (46, 1, '2025-07-29 11:31:31.502242', '2025-07-29 11:31:31.502242', 2) RETURNING "id" /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.1ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 46 /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.3ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 46 AND "cart_items"."product_id" = 3 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 3 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN /*application='MyApp'*/[0m
+  [1m[36mCartItem Create (0.3ms)[0m  [1m[32mINSERT INTO "cart_items" ("cart_id", "product_id", "created_at", "updated_at", "quantity") VALUES (46, 3, '2025-07-29 11:31:32.920241', '2025-07-29 11:31:32.920241', 1) RETURNING "id" /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.3ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 46 AND "cart_items"."product_id" = 3 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 3 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN /*application='MyApp'*/[0m
+  [1m[36mCartItem Update (0.2ms)[0m  [1m[33mUPDATE "cart_items" SET "updated_at" = '2025-07-29 11:31:34.624638', "quantity" = 2 WHERE "cart_items"."id" = 63 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.3ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 46 AND "cart_items"."product_id" = 3 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 3 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN /*application='MyApp'*/[0m
+  [1m[36mCartItem Update (0.2ms)[0m  [1m[33mUPDATE "cart_items" SET "updated_at" = '2025-07-29 11:31:36.136383', "quantity" = 3 WHERE "cart_items"."id" = 63 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.3ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 46 AND "cart_items"."product_id" = 2 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 2 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN /*application='MyApp'*/[0m
+  [1m[36mCartItem Create (0.3ms)[0m  [1m[32mINSERT INTO "cart_items" ("cart_id", "product_id", "created_at", "updated_at", "quantity") VALUES (46, 2, '2025-07-29 11:31:38.228738', '2025-07-29 11:31:38.228738', 1) RETURNING "id" /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.3ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 46 /*application='MyApp'*/[0m
+  [1m[36mProduct Load (0.5ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 1 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 3 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 2 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.6ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 46 /*application='MyApp'*/[0m
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 1 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 3 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 2 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.4ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 46 /*application='MyApp'*/[0m
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 3 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='MyApp'*/[0m
+  [1m[36mCart Create (0.5ms)[0m  [1m[32mINSERT INTO "carts" ("created_at", "updated_at") VALUES ('2025-07-29 11:34:03.268459', '2025-07-29 11:34:03.268459') RETURNING "id" /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.5ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 47 AND "cart_items"."product_id" = 2 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 2 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN /*application='MyApp'*/[0m
+  [1m[36mCartItem Create (0.3ms)[0m  [1m[32mINSERT INTO "cart_items" ("cart_id", "product_id", "created_at", "updated_at", "quantity") VALUES (47, 2, '2025-07-29 11:34:09.612979', '2025-07-29 11:34:09.612979', 1) RETURNING "id" /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.1ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 47 /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.3ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 47 AND "cart_items"."product_id" = 2 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 2 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='MyApp'*/[0m
+  [1m[36mCartItem Update (0.3ms)[0m  [1m[33mUPDATE "cart_items" SET "updated_at" = '2025-07-29 11:34:10.502446', "quantity" = 2 WHERE "cart_items"."id" = 65 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.3ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 47 AND "cart_items"."product_id" = 2 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 2 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN /*application='MyApp'*/[0m
+  [1m[36mCartItem Update (0.3ms)[0m  [1m[33mUPDATE "cart_items" SET "updated_at" = '2025-07-29 11:34:11.155376', "quantity" = 3 WHERE "cart_items"."id" = 65 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.3ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 47 AND "cart_items"."product_id" = 1 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 1 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN /*application='MyApp'*/[0m
+  [1m[36mCartItem Create (0.3ms)[0m  [1m[32mINSERT INTO "cart_items" ("cart_id", "product_id", "created_at", "updated_at", "quantity") VALUES (47, 1, '2025-07-29 11:34:12.445392', '2025-07-29 11:34:12.445392', 2) RETURNING "id" /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.3ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 47 /*application='MyApp'*/[0m
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 2 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 1 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='MyApp'*/[0m
+  [1m[36mCart Create (0.4ms)[0m  [1m[32mINSERT INTO "carts" ("created_at", "updated_at") VALUES ('2025-07-29 11:34:47.008413', '2025-07-29 11:34:47.008413') RETURNING "id" /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.3ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 48 AND "cart_items"."product_id" = 1 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 1 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN /*application='MyApp'*/[0m
+  [1m[36mCartItem Create (0.3ms)[0m  [1m[32mINSERT INTO "cart_items" ("cart_id", "product_id", "created_at", "updated_at", "quantity") VALUES (48, 1, '2025-07-29 11:34:54.664487', '2025-07-29 11:34:54.664487', 2) RETURNING "id" /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.1ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 48 /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.3ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 48 AND "cart_items"."product_id" = 2 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 2 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN /*application='MyApp'*/[0m
+  [1m[36mCartItem Create (0.3ms)[0m  [1m[32mINSERT INTO "cart_items" ("cart_id", "product_id", "created_at", "updated_at", "quantity") VALUES (48, 2, '2025-07-29 11:34:56.549061', '2025-07-29 11:34:56.549061', 1) RETURNING "id" /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.3ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 48 AND "cart_items"."product_id" = 1 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 1 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN /*application='MyApp'*/[0m
+  [1m[36mCartItem Update (0.2ms)[0m  [1m[33mUPDATE "cart_items" SET "updated_at" = '2025-07-29 11:34:57.954507', "quantity" = 4 WHERE "cart_items"."id" = 67 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.6ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 48 AND "cart_items"."product_id" = 1 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 1 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN /*application='MyApp'*/[0m
+  [1m[36mCartItem Update (0.2ms)[0m  [1m[33mUPDATE "cart_items" SET "updated_at" = '2025-07-29 11:34:59.442819', "quantity" = 6 WHERE "cart_items"."id" = 67 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.3ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 48 AND "cart_items"."product_id" = 3 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 3 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN /*application='MyApp'*/[0m
+  [1m[36mCartItem Create (0.3ms)[0m  [1m[32mINSERT INTO "cart_items" ("cart_id", "product_id", "created_at", "updated_at", "quantity") VALUES (48, 3, '2025-07-29 11:35:00.685015', '2025-07-29 11:35:00.685015', 1) RETURNING "id" /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.4ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 48 /*application='MyApp'*/[0m
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 2 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 1 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 3 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.3ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 48 AND "cart_items"."product_id" = 3 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='MyApp'*/[0m
+  [1m[36mCartItem Destroy (0.2ms)[0m  [1m[31mDELETE FROM "cart_items" WHERE "cart_items"."id" = 69 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.4ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 48 /*application='MyApp'*/[0m
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 2 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 1 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.3ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 48 AND "cart_items"."product_id" = 2 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN /*application='MyApp'*/[0m
+  [1m[36mCartItem Destroy (0.2ms)[0m  [1m[31mDELETE FROM "cart_items" WHERE "cart_items"."id" = 68 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.3ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 48 /*application='MyApp'*/[0m
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 1 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.3ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 48 AND "cart_items"."product_id" = 1 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN /*application='MyApp'*/[0m
+  [1m[36mCart Create (0.4ms)[0m  [1m[32mINSERT INTO "carts" ("created_at", "updated_at") VALUES ('2025-07-29 11:38:35.235457', '2025-07-29 11:38:35.235457') RETURNING "id" /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.3ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 49 AND "cart_items"."product_id" = 1 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 1 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN /*application='MyApp'*/[0m
+  [1m[36mCartItem Create (0.4ms)[0m  [1m[32mINSERT INTO "cart_items" ("cart_id", "product_id", "created_at", "updated_at", "quantity") VALUES (49, 1, '2025-07-29 11:38:43.864827', '2025-07-29 11:38:43.864827', 2) RETURNING "id" /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.3ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 49 AND "cart_items"."product_id" = 2 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 2 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='MyApp'*/[0m
+  [1m[36mCartItem Create (0.4ms)[0m  [1m[32mINSERT INTO "cart_items" ("cart_id", "product_id", "created_at", "updated_at", "quantity") VALUES (49, 2, '2025-07-29 11:38:45.108593', '2025-07-29 11:38:45.108593', 1) RETURNING "id" /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.3ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 49 AND "cart_items"."product_id" = 1 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 1 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN /*application='MyApp'*/[0m
+  [1m[36mCartItem Update (0.2ms)[0m  [1m[33mUPDATE "cart_items" SET "updated_at" = '2025-07-29 11:38:46.864642', "quantity" = 4 WHERE "cart_items"."id" = 70 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.3ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 49 AND "cart_items"."product_id" = 3 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 3 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='MyApp'*/[0m
+  [1m[36mCartItem Create (0.3ms)[0m  [1m[32mINSERT INTO "cart_items" ("cart_id", "product_id", "created_at", "updated_at", "quantity") VALUES (49, 3, '2025-07-29 11:38:52.257008', '2025-07-29 11:38:52.257008', 1) RETURNING "id" /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.3ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 49 /*application='MyApp'*/[0m
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 2 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 1 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 3 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.3ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 49 AND "cart_items"."product_id" = 1 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN /*application='MyApp'*/[0m
+  [1m[36mCartItem Update (0.2ms)[0m  [1m[33mUPDATE "cart_items" SET "updated_at" = '2025-07-29 11:39:45.905635', "quantity" = 3 WHERE "cart_items"."id" = 70 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.3ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 49 /*application='MyApp'*/[0m
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 2 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 3 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 1 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.5ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 49 AND "cart_items"."product_id" = 1 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN /*application='MyApp'*/[0m
+  [1m[36mCartItem Update (0.2ms)[0m  [1m[33mUPDATE "cart_items" SET "updated_at" = '2025-07-29 11:41:36.084858', "quantity" = 2 WHERE "cart_items"."id" = 70 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.3ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 49 AND "cart_items"."product_id" = 1 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN /*application='MyApp'*/[0m
+  [1m[36mCartItem Update (0.2ms)[0m  [1m[33mUPDATE "cart_items" SET "updated_at" = '2025-07-29 11:41:40.358345', "quantity" = 1 WHERE "cart_items"."id" = 70 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.3ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 49 AND "cart_items"."product_id" = 1 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN /*application='MyApp'*/[0m
+  [1m[36mCartItem Destroy (0.2ms)[0m  [1m[31mDELETE FROM "cart_items" WHERE "cart_items"."id" = 70 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.3ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 49 /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.3ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 49 AND "cart_items"."product_id" = 1 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 1 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN /*application='MyApp'*/[0m
+  [1m[36mCartItem Create (0.4ms)[0m  [1m[32mINSERT INTO "cart_items" ("cart_id", "product_id", "created_at", "updated_at", "quantity") VALUES (49, 1, '2025-07-29 11:42:00.656887', '2025-07-29 11:42:00.656887', 2) RETURNING "id" /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.3ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 49 AND "cart_items"."product_id" = 1 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN /*application='MyApp'*/[0m
+  [1m[36mCartItem Update (0.2ms)[0m  [1m[33mUPDATE "cart_items" SET "updated_at" = '2025-07-29 11:42:11.611411', "quantity" = 1 WHERE "cart_items"."id" = 73 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.3ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 49 /*application='MyApp'*/[0m
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 2 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 3 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 1 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN /*application='MyApp'*/[0m
+  [1m[36mCart Create (0.4ms)[0m  [1m[32mINSERT INTO "carts" ("created_at", "updated_at") VALUES ('2025-07-29 11:44:01.487408', '2025-07-29 11:44:01.487408') RETURNING "id" /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.2ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 50 AND "cart_items"."product_id" = 1 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 1 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='MyApp'*/[0m
+  [1m[36mCartItem Create (0.7ms)[0m  [1m[32mINSERT INTO "cart_items" ("cart_id", "product_id", "created_at", "updated_at", "quantity") VALUES (50, 1, '2025-07-29 11:44:06.436976', '2025-07-29 11:44:06.436976', 2) RETURNING "id" /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.3ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 50 AND "cart_items"."product_id" = 2 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 2 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='MyApp'*/[0m
+  [1m[36mCartItem Create (0.4ms)[0m  [1m[32mINSERT INTO "cart_items" ("cart_id", "product_id", "created_at", "updated_at", "quantity") VALUES (50, 2, '2025-07-29 11:44:07.493312', '2025-07-29 11:44:07.493312', 1) RETURNING "id" /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.3ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 50 AND "cart_items"."product_id" = 1 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 1 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='MyApp'*/[0m
+  [1m[36mCartItem Update (0.3ms)[0m  [1m[33mUPDATE "cart_items" SET "updated_at" = '2025-07-29 11:44:09.079145', "quantity" = 4 WHERE "cart_items"."id" = 74 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.3ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 50 AND "cart_items"."product_id" = 1 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 1 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN /*application='MyApp'*/[0m
+  [1m[36mCartItem Update (0.3ms)[0m  [1m[33mUPDATE "cart_items" SET "updated_at" = '2025-07-29 11:44:10.131338', "quantity" = 6 WHERE "cart_items"."id" = 74 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.3ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 50 AND "cart_items"."product_id" = 3 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 3 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN /*application='MyApp'*/[0m
+  [1m[36mCartItem Create (0.3ms)[0m  [1m[32mINSERT INTO "cart_items" ("cart_id", "product_id", "created_at", "updated_at", "quantity") VALUES (50, 3, '2025-07-29 11:44:11.217627', '2025-07-29 11:44:11.217627', 1) RETURNING "id" /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.3ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 50 /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.3ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 50 AND "cart_items"."product_id" = 1 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN /*application='MyApp'*/[0m
+  [1m[36mCartItem Update (0.2ms)[0m  [1m[33mUPDATE "cart_items" SET "updated_at" = '2025-07-29 11:44:37.324291', "quantity" = 5 WHERE "cart_items"."id" = 74 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.3ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 50 /*application='MyApp'*/[0m
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 2 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 3 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 1 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='MyApp'*/[0m
+  [1m[36mCart Create (0.4ms)[0m  [1m[32mINSERT INTO "carts" ("created_at", "updated_at") VALUES ('2025-07-29 11:45:14.885857', '2025-07-29 11:45:14.885857') RETURNING "id" /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.3ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 51 AND "cart_items"."product_id" = 2 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 2 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='MyApp'*/[0m
+  [1m[36mCartItem Create (0.5ms)[0m  [1m[32mINSERT INTO "cart_items" ("cart_id", "product_id", "created_at", "updated_at", "quantity") VALUES (51, 2, '2025-07-29 11:45:23.171087', '2025-07-29 11:45:23.171087', 1) RETURNING "id" /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.3ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 51 AND "cart_items"."product_id" = 3 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 3 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN /*application='MyApp'*/[0m
+  [1m[36mCartItem Create (0.3ms)[0m  [1m[32mINSERT INTO "cart_items" ("cart_id", "product_id", "created_at", "updated_at", "quantity") VALUES (51, 3, '2025-07-29 11:45:24.476976', '2025-07-29 11:45:24.476976', 1) RETURNING "id" /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.3ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 51 AND "cart_items"."product_id" = 1 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 1 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='MyApp'*/[0m
+  [1m[36mCartItem Create (0.4ms)[0m  [1m[32mINSERT INTO "cart_items" ("cart_id", "product_id", "created_at", "updated_at", "quantity") VALUES (51, 1, '2025-07-29 11:45:27.154724', '2025-07-29 11:45:27.154724', 2) RETURNING "id" /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.3ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 51 AND "cart_items"."product_id" = 1 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 1 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='MyApp'*/[0m
+  [1m[36mCartItem Update (0.3ms)[0m  [1m[33mUPDATE "cart_items" SET "updated_at" = '2025-07-29 11:45:28.307068', "quantity" = 4 WHERE "cart_items"."id" = 79 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.3ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 51 AND "cart_items"."product_id" = 1 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='MyApp'*/[0m
+  [1m[36mCartItem Update (0.2ms)[0m  [1m[33mUPDATE "cart_items" SET "updated_at" = '2025-07-29 11:45:34.015087', "quantity" = 3 WHERE "cart_items"."id" = 79 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.3ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 51 /*application='MyApp'*/[0m
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 2 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 3 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 1 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN /*application='MyApp'*/[0m
+  [1m[36mCart Create (0.4ms)[0m  [1m[32mINSERT INTO "carts" ("created_at", "updated_at") VALUES ('2025-07-29 11:46:36.759760', '2025-07-29 11:46:36.759760') RETURNING "id" /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.3ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 52 AND "cart_items"."product_id" = 1 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 1 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='MyApp'*/[0m
+  [1m[36mCartItem Create (0.4ms)[0m  [1m[32mINSERT INTO "cart_items" ("cart_id", "product_id", "created_at", "updated_at", "quantity") VALUES (52, 1, '2025-07-29 11:46:49.762978', '2025-07-29 11:46:49.762978', 2) RETURNING "id" /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.3ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 52 AND "cart_items"."product_id" = 1 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 1 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN /*application='MyApp'*/[0m
+  [1m[36mCartItem Update (0.2ms)[0m  [1m[33mUPDATE "cart_items" SET "updated_at" = '2025-07-29 11:46:50.685252', "quantity" = 4 WHERE "cart_items"."id" = 80 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.3ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 52 AND "cart_items"."product_id" = 2 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 2 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN /*application='MyApp'*/[0m
+  [1m[36mCartItem Create (0.4ms)[0m  [1m[32mINSERT INTO "cart_items" ("cart_id", "product_id", "created_at", "updated_at", "quantity") VALUES (52, 2, '2025-07-29 11:46:51.888859', '2025-07-29 11:46:51.888859', 1) RETURNING "id" /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.3ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 52 AND "cart_items"."product_id" = 3 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 3 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN /*application='MyApp'*/[0m
+  [1m[36mCartItem Create (0.3ms)[0m  [1m[32mINSERT INTO "cart_items" ("cart_id", "product_id", "created_at", "updated_at", "quantity") VALUES (52, 3, '2025-07-29 11:46:54.026718', '2025-07-29 11:46:54.026718', 1) RETURNING "id" /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.3ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 52 AND "cart_items"."product_id" = 1 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN /*application='MyApp'*/[0m
+  [1m[36mCartItem Update (0.2ms)[0m  [1m[33mUPDATE "cart_items" SET "updated_at" = '2025-07-29 11:47:00.207665', "quantity" = 3 WHERE "cart_items"."id" = 80 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.3ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 52 /*application='MyApp'*/[0m
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 2 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 3 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 1 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='MyApp'*/[0m
+  [1m[36mCart Create (0.5ms)[0m  [1m[32mINSERT INTO "carts" ("created_at", "updated_at") VALUES ('2025-07-29 11:48:05.808045', '2025-07-29 11:48:05.808045') RETURNING "id" /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.3ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 53 AND "cart_items"."product_id" = 1 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 1 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='MyApp'*/[0m
+  [1m[36mCartItem Create (0.3ms)[0m  [1m[32mINSERT INTO "cart_items" ("cart_id", "product_id", "created_at", "updated_at", "quantity") VALUES (53, 1, '2025-07-29 11:48:11.056024', '2025-07-29 11:48:11.056024', 2) RETURNING "id" /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.4ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 53 /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.3ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 53 /*application='MyApp'*/[0m
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 1 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='MyApp'*/[0m
+  [1m[36mCart Create (0.4ms)[0m  [1m[32mINSERT INTO "carts" ("created_at", "updated_at") VALUES ('2025-07-29 11:48:31.888033', '2025-07-29 11:48:31.888033') RETURNING "id" /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.3ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 54 AND "cart_items"."product_id" = 2 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 2 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN /*application='MyApp'*/[0m
+  [1m[36mCartItem Create (0.3ms)[0m  [1m[32mINSERT INTO "cart_items" ("cart_id", "product_id", "created_at", "updated_at", "quantity") VALUES (54, 2, '2025-07-29 11:48:36.623978', '2025-07-29 11:48:36.623978', 1) RETURNING "id" /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.3ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 54 AND "cart_items"."product_id" = 2 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 2 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN /*application='MyApp'*/[0m
+  [1m[36mCartItem Update (0.2ms)[0m  [1m[33mUPDATE "cart_items" SET "updated_at" = '2025-07-29 11:48:37.960656', "quantity" = 2 WHERE "cart_items"."id" = 84 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.3ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 54 AND "cart_items"."product_id" = 1 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 1 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN /*application='MyApp'*/[0m
+  [1m[36mCartItem Create (0.4ms)[0m  [1m[32mINSERT INTO "cart_items" ("cart_id", "product_id", "created_at", "updated_at", "quantity") VALUES (54, 1, '2025-07-29 11:48:39.276876', '2025-07-29 11:48:39.276876', 2) RETURNING "id" /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.3ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 54 AND "cart_items"."product_id" = 2 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 2 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN /*application='MyApp'*/[0m
+  [1m[36mCartItem Update (0.2ms)[0m  [1m[33mUPDATE "cart_items" SET "updated_at" = '2025-07-29 11:48:40.424965', "quantity" = 3 WHERE "cart_items"."id" = 84 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.3ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 54 AND "cart_items"."product_id" = 1 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN /*application='MyApp'*/[0m
+  [1m[36mCartItem Update (0.2ms)[0m  [1m[33mUPDATE "cart_items" SET "updated_at" = '2025-07-29 11:48:48.901545', "quantity" = 1 WHERE "cart_items"."id" = 85 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.3ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 54 /*application='MyApp'*/[0m
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 2 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 1 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='MyApp'*/[0m
+  [1m[36mCart Create (0.4ms)[0m  [1m[32mINSERT INTO "carts" ("created_at", "updated_at") VALUES ('2025-07-29 11:49:19.260040', '2025-07-29 11:49:19.260040') RETURNING "id" /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.3ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 55 AND "cart_items"."product_id" = 1 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 1 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='MyApp'*/[0m
+  [1m[36mCartItem Create (0.3ms)[0m  [1m[32mINSERT INTO "cart_items" ("cart_id", "product_id", "created_at", "updated_at", "quantity") VALUES (55, 1, '2025-07-29 11:49:27.043414', '2025-07-29 11:49:27.043414', 2) RETURNING "id" /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.3ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 55 AND "cart_items"."product_id" = 3 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 3 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN /*application='MyApp'*/[0m
+  [1m[36mCartItem Create (0.3ms)[0m  [1m[32mINSERT INTO "cart_items" ("cart_id", "product_id", "created_at", "updated_at", "quantity") VALUES (55, 3, '2025-07-29 11:49:30.077309', '2025-07-29 11:49:30.077309', 1) RETURNING "id" /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.3ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 55 AND "cart_items"."product_id" = 2 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 2 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN /*application='MyApp'*/[0m
+  [1m[36mCartItem Create (0.3ms)[0m  [1m[32mINSERT INTO "cart_items" ("cart_id", "product_id", "created_at", "updated_at", "quantity") VALUES (55, 2, '2025-07-29 11:49:31.041366', '2025-07-29 11:49:31.041366', 1) RETURNING "id" /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.3ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 55 AND "cart_items"."product_id" = 3 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 3 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='MyApp'*/[0m
+  [1m[36mCartItem Update (0.3ms)[0m  [1m[33mUPDATE "cart_items" SET "updated_at" = '2025-07-29 11:49:32.175279', "quantity" = 2 WHERE "cart_items"."id" = 87 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.5ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 55 AND "cart_items"."product_id" = 3 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 3 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN /*application='MyApp'*/[0m
+  [1m[36mCartItem Update (0.2ms)[0m  [1m[33mUPDATE "cart_items" SET "updated_at" = '2025-07-29 11:49:33.906322', "quantity" = 3 WHERE "cart_items"."id" = 87 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.3ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 55 AND "cart_items"."product_id" = 1 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='MyApp'*/[0m
+  [1m[36mCartItem Update (0.2ms)[0m  [1m[33mUPDATE "cart_items" SET "updated_at" = '2025-07-29 11:49:42.057749', "quantity" = 1 WHERE "cart_items"."id" = 86 /*application='MyApp'*/[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.3ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 55 /*application='MyApp'*/[0m
+  [1m[36mCartItem Load (0.4ms)[0m  [1m[34mSELECT "cart_items".* FROM "cart_items" WHERE "cart_items"."cart_id" = 55 /*application='MyApp'*/[0m
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 2 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 3 LIMIT 1 /*application='MyApp'*/[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 1 LIMIT 1 /*application='MyApp'*/[0m
