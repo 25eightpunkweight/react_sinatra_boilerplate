@@ -5,35 +5,30 @@ services:
     volumes:
       - ./tmp/db:/var/lib/postgresql/data
     environment:
-      POSTGRES_HOST_AUTH_METHOD: trust  
-  # sinatra-api:
-  #   build: ./sinatra_api
-  #   command: bash -c "rm -f tmp/pids/server.pid && bundle exec puma"
-  #   volumes:
-  #     - .:/sinatra-api
-  #   ports:
-  #     - "9292:9292"
-  #   depends_on:
-  #     - db
-  #   env_file: ./sinatra_api/.env
+      POSTGRES_HOST_AUTH_METHOD: trust
   my_app:
     platform: linux/amd64
     build: ./my_app
     command: bundle exec rails s -p 3000 -b '0.0.0.0'
     volumes:
       - ./my_app:/my_app
+    ports:
+      - 3000:3000
     depends_on:
       - db
     env_file: ./my_app/.env
   react-app:
-    build: ./react_app
-    command: bash -c "npm start"
+    build: ./react-app
+    command: npm run dev
     volumes:
-      - .:/react-app
+      - ./react-app:/react-app
     ports:
-      - "1337:1337"
+      - 1337:1337
     depends_on:
       - my_app
-    env_file: ./react_app/.env
+    env_file: ./react-app/.env
+    environment:
+      - CHOKIDAR_USEPOLLING=true
+      - WATCHPACK_POLLING=true
 volumes:
   postgres:
