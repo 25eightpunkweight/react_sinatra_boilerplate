@@ -78,7 +78,7 @@
   text-align: center;
   width: 50%;
   height: 100%;
-  min-height: 300px;
+  min-height: 400px;
   
 }
 
@@ -87,6 +87,7 @@
   flex-direction: column;
   align-items: left;
   width: auto;
+  min-height: 200px;
 }
 
 .cart-item-buttons {
@@ -94,6 +95,7 @@
   flex-direction: column;
   align-items: left;
   width: auto;
+  min-height: 200px;
 }
 
 .cart-total {

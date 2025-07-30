@@ -16,6 +16,8 @@ function App() {
       <div className="App">
         <div className="centered-box">
           <h1>Cash Register</h1>
+          <p>Click on a Product to add to your cart!</p>
+          <p>Click on an Item on your cart to remove one item from your cart!</p>
           <div className="horizontal-container">
             <ProductList/>
             <CartDiv/>
