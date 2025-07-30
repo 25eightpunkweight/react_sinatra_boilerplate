@@ -1,6 +1,12 @@
 class CartController < ApplicationController    
+    skip_before_action :verify_authenticity_token
     def show
-        @items = @cart.items
+        @cart = Cart.find(params[:id])
+        render json: {
+            cart_id: @cart.id,
+            cart_items: @cart.current_cart,
+            cart_total: @cart.total_price
+        }, status: :ok
     end
 
     def create
@@ -11,21 +17,22 @@ class CartController < ApplicationController
     end
     
     def add_item
-        @cart = Cart.find(params[:cart_id])
+        @cart = Cart.find(params[:id])
         @cart.add_to_cart(params[:product_id])
         render json: {
             cart_id: @cart.id,
-            cart_items: @cart.current_cart
+            cart_items: @cart.current_cart,
             cart_total: @cart.total_price
-        }, status: :updated
+        }, status: :ok
     end
     
     def remove_item
-        @cart = Cart.find(params[:cart_id])
+        @cart = Cart.find(params[:id])
         @cart.remove_from_cart(params[:product_id])
         render json: {
             cart_id: @cart.id,
-            cart_items: @cart.current_cart
+            cart_items: @cart.current_cart,
             cart_total: @cart.total_price
-        }, status: :updated    end
+        }, status: :ok    
+    end
 end
