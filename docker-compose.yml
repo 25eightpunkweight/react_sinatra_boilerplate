@@ -28,8 +28,6 @@ services:
       - my_app
     env_file: ./react-app/.env
     environment:
-      - CHOKIDAR_USEPOLLING=true
-      - WATCHPACK_POLLING=true
       - PORT=1337
 volumes:
   postgres:
