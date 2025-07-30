@@ -27,3 +27,8 @@ react_app/yarn-debug.log*
 react_app/yarn-error.log*
 
 my_app/tmp
+my_app/log
+my_app/.env
+react-app/node_modules
+react-app/.env
+.react_app/

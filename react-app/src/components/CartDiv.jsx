@@ -1,13 +1,14 @@
 import React from 'react';
 import { useCart } from '../contexts/CartContext';
 import axios from 'axios';
+import api from '../api/axios';
 
 function CartDiv() {
     const { cart, cartId, loading, refreshCart } = useCart();
 
     const handleRemove = (productId) => {
     if (!cartId) return;
-    axios.delete(`http://localhost:3000/cart/${cartId}/remove_item`, {
+    api.delete(`/cart/${cartId}/remove_item`, {
         data: { product_id: productId }
     }).then(() => {
         refreshCart();

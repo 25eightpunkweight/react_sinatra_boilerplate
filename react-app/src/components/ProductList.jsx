@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useCart } from '../contexts/CartContext';
 import '../App.css'
+import api from '../api/axios';
 
 function ProductList() {
   const [products, setProducts] = useState([]);
@@ -9,7 +10,7 @@ function ProductList() {
   const { addItem } = useCart();
 
   useEffect(() => {
-    axios.get('http://localhost:3000/product')
+    api.get('/product')
       .then((response) => {
         setProducts(response.data);
         setLoading(false);

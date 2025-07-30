@@ -1,5 +1,6 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
 import axios from 'axios';
+import api from '../api/axios';
 
 const CartContext = createContext();
 
@@ -11,10 +12,10 @@ export function CartProvider({ children }) {
   // On mount, create or fetch a cart
   useEffect(() => {
     setLoading(true);
-    axios.post('http://localhost:3000/cart')
+    api.post('/cart')
       .then(res => {
         setCartId(res.data.cart_id);
-        return axios.get(`http://localhost:3000/cart/${res.data.cart_id}`);
+        return api.get(`/cart/${res.data.cart_id}`);
       })
       .then(res => {
         setCart(res.data);
@@ -31,8 +32,8 @@ export function CartProvider({ children }) {
   // Add item to cart
   const addItem = (productId) => {
     if (!cartId) return;
-    axios.post(`http://localhost:3000/cart/${cartId}/add_item`, { product_id: productId })
-      .then(() => axios.get(`http://localhost:3000/cart/${cartId}`))
+    api.post(`/cart/${cartId}/add_item`, { product_id: productId })
+      .then(() => api.get(`/cart/${cartId}`))
       .then(res => setCart(sortCartItems(res.data)));
   };
 
@@ -40,7 +41,7 @@ export function CartProvider({ children }) {
   const refreshCart = () => {
     if (!cartId) return;
     setLoading(true);
-    axios.get(`http://localhost:3000/cart/${cartId}`)
+    api.get(`/cart/${cartId}`)
       .then(res => {
         setCart(sortCartItems(res.data));
         setLoading(false);
