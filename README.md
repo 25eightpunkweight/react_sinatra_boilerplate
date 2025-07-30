@@ -13,4 +13,4 @@ Start the containers using `docker-compose up`.
   - Users can click on a product at the left side to add to their cart at the right side.
   - Removing items from the cart are done one at a time by clicking on an item in the cart.
   - The price total is also shown at the bottom, applying the special promotions given in the spec.
-  - To see a live online deployment of this app, click [here](https://react-cart-app.up.railway.app/).
+  - To see a live online deployment of this app (deployed using [railway.app](https://railway.com)), click [here](https://react-cart-app.up.railway.app/).
