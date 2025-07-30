@@ -10,6 +10,9 @@ class CartController < ApplicationController
     end
 
     def create
+        oldest_carts = Cart.order(:created_at).limit(3)
+        oldest_carts.destroy_all if Cart.count >= 3
+      
         @cart = Cart.create()
         render json: { 
             cart_id: @cart.id,
